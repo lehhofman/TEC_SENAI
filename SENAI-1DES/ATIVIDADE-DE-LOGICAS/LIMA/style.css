@@ -1,0 +1,27 @@
+body{
+    background-color: beige;
+}
+
+h3{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    color: red;
+}
+
+p{
+    padding: 10px;
+    font-size: 100%;
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 10px;
+}
+h4{
+    text-align: center;
+    align-items: center;
+    color: rgb(149, 149, 66);
+}
+.aa{
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+}

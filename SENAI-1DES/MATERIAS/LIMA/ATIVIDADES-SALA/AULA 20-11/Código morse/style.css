@@ -1,0 +1,56 @@
+body{
+
+    background-color: rgb(3, 77, 90);
+
+}
+
+h1{
+
+    text-align: center;
+    color:burlywood;
+    margin-top: 30px;
+    font-style:italic;
+
+}
+
+h4{
+
+    border: 2px solid rgb(229, 197, 154);
+    width: 650px;
+    margin-left: 430px;
+
+}
+
+input{
+
+    display: flex;
+    margin-left: 570px;
+    text-align: center;
+    width: 350px;
+    height: 40px;
+    margin-top: 200px;
+    border-radius: 30px;
+    border: 3px solid rgb(0, 0, 0);
+    background-color: rgb(229, 197, 154);
+    
+}
+
+button{
+
+    margin-left: 670px;
+    margin-top: 20px;
+    border-radius: 20px;
+    width: 170px;
+    height: 40px;
+    background-color: burlywood;
+    color: rgb(3, 77, 90);
+    font-size: 15px;
+
+}
+
+p{
+    /* margin-left: 550px; */
+    text-align: center;
+    font-size: 50px;
+    color: bisque;
+}

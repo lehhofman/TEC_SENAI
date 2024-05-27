@@ -1,0 +1,229 @@
+*{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body{
+
+    background-color: #ddd;
+
+}
+
+.dolar{
+
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 45px;
+
+}
+
+.dolar > h4{
+
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 15px;
+
+}
+
+.dolar > p{
+
+    color: red;
+    margin-left: 10px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+.euro{
+
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 45px;
+
+}
+
+.euro > h4{
+
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 15px;
+
+}
+
+.euro > p{
+
+    color: rgb(97, 194, 73);
+    margin-left: 10px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+.temperatura{
+
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 45px;
+
+}
+
+.temperatura > h4{
+
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 15px;
+
+}
+
+.temperatura > p{
+
+    color: rgb(56, 168, 170);
+    margin-left: 10px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+.informaçao{
+
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.logo > img{
+
+    margin-left: 250px;
+    width: 100px;
+    height: 100px;
+
+}
+
+.buscar{
+
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+
+}
+
+.buscar > input{
+
+    width: 20vw;
+    height: 40px;
+    padding: 15px;
+    margin-left: 415px;
+    border-radius: 100px;
+    outline: none;
+    background-color: rgb(204, 204, 204);
+
+}
+
+.buscar > img{
+
+    transform: translateX(-50px);
+    width: 2rem;
+    height: 2rem;
+
+}
+
+.informaçao > hr{
+
+    margin-left: 30px;
+    border-bottom: 2px solid #000;
+    width: 1400px;
+
+}
+
+main{
+
+    display: flex;
+    justify-content: space-evenly;
+    
+
+}
+
+.not1{
+
+    display: flex;
+
+}
+
+.not1 > img{
+
+    margin-left: 10%;
+    margin-top: 50px;
+    width: 300px;
+    height: 200px;
+
+}
+
+.a{
+
+    margin-left: 50px;
+    margin-top: 70px;
+
+}
+
+.a > h3{
+
+    font-size: 15px;
+
+
+}
+
+.not2{
+
+    display: flex;
+    
+}
+
+.not2 > img{
+
+    margin-left: 10%;
+    margin-top: 50px;
+    width: 300px;
+    height: 200px;
+
+}
+
+.not3{
+
+    display: flex;
+    
+}
+
+.not3 > img{
+
+    margin-left: 10%;
+    margin-top: 50px;
+    width: 300px;
+    height: 200px;
+
+}
+
+.emalta{
+
+    margin-top: 5%;
+    width: 220px;
+    height: 350px;
+    border: 1px solid #000;
+    background-color: #848080;
+
+}
+
+.emalta > h3{
+
+    text-align: center;
+    padding: 4px;
+
+}
+
+.emalta > p{
+
+    text-align: center;
+
+}

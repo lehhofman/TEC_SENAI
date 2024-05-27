@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    text-align: center;
+    margin-top: 150px;
+    background-color: pink;
+    border: 5px solid ;
+    width: 400px;
+    height: 330x;
+    margin-left: 500px;
+}
+form img{
+    margin-top: 10px;
+    width: 80px;
+    height: 80px;
+    align-items: center;
+}
+form{
+    color: rgb(181, 74, 110);
+    background-color: rgb(223, 156, 197);
+}
+input{
+    margin-left: 10px;
+    height: 20px;
+}

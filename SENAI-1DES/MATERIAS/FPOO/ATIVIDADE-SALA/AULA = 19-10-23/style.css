@@ -1,0 +1,120 @@
+body{
+
+    background-color: rgb(208, 157, 255);
+
+}
+
+.card{
+
+    width: 250px;
+    border-radius: 15px;
+    border:1px solid black;
+    padding:20px;
+    background-color: rgb(171, 124, 214);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5)
+
+}
+
+.card > h2{
+
+    text-align: center;
+    color: rgb(120, 66, 171);
+
+}
+
+.model{
+
+    display:none;
+
+}
+
+h1{
+
+    text-align: center;
+    font-size: 40px;
+    color: rgb(120, 66, 171);
+
+}
+
+form{
+
+    text-align: center;
+    padding: 20px;
+
+}
+
+.cards{
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 20px;
+    
+}
+
+form > #nome{
+
+    width: 30%;
+    height: 30px;
+    border-radius: 50px;
+    text-align: center;
+
+}
+
+form > #salario{
+
+    width: 30%;
+    height: 30px;
+    border-radius: 50px;
+    text-align: center;
+
+}
+
+form > #enviar{
+
+    border-radius: 50px;
+    width: 7%;
+    height: 40px;
+    background-color: beige;
+
+}
+
+form > #excluir{
+
+    border-radius: 50px;
+    width: 7%;
+    height: 40px;
+    background-color: beige;
+    
+}
+
+#deletar{
+
+    margin:50px;
+    background-color: rgb(176, 150, 255);
+
+}
+
+.botao{
+
+    display: flex;
+    width: 200%;
+    padding: 10px;
+
+}
+
+.botao > #excluir{
+
+    background-color: beige;
+    border-radius: 50px;
+    height: 40px;
+
+}
+
+.botao > #modificar{
+
+    background-color: beige;
+    border-radius: 50px;
+    height: 40px;
+    
+}

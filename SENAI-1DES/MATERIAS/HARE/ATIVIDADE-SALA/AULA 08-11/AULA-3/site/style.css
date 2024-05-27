@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    background-color: rgb(11, 43, 85);
+}
+
+nav {
+    display: flex;
+    height: 9vh;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(11, 43, 85);
+}
+
+a {
+    text-decoration: none;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: rgb(210, 152, 76);
+}
+
+nav .pesquisa {
+    display: flex;
+    align-items: center;
+}
+
+nav .pesquisa input {
+    width: 30vw;
+    padding: 8px;
+    margin-left: 200px;
+    border-radius: 100px;
+    outline: none;
+}
+
+h2 {
+    margin-left: 30px;
+    color: rgb(210, 152, 76);
+}
+
+nav .pesquisa img {
+    transform: translateX(-50px);
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+nav .site {
+    display: flex;
+    align-items: center;
+    gap: 70px;
+    font-size: 1.5em;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+nav .site img {
+    justify-content: end;
+    margin-right: 20px;
+    width: 5vh;
+    filter: invert(100%);
+}
+
+main .categorias {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    height: 4em;
+    background-color: var(--bg-color-4);
+}
+
+main .categorias p {
+    font-size: 1.5rem;
+    color: rgb(210, 152, 76);
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+.card img {
+    width: 100px;
+    height: 100px;
+    border: 3px solid rgb(210, 152, 76);
+    margin-left: 50px;
+    margin-top: 10px;
+}
+
+.card {
+    border: 1px solid rgb(210, 152, 76);
+    border-radius: 3px;
+    width: 200px;
+    height: 200px;
+}
+
+.a {
+    display: flex;
+    justify-content: space-around;
+}
+
+.card h2 {
+    text-align: center;
+    margin-right: 20px;
+}
+
+.card h3 {
+    text-align: center;
+    font-size: 18px;
+    color: rgb(210, 133, 32);
+    margin-left: 10px;
+}
+
+.card p {
+    text-align: center;
+    font-size: 25px;
+    color: rgb(210, 133, 32);
+    font-weight: bold;
+}
+
+.row1 {
+    margin-top: 20px;
+}
+
+.card1 img {
+    width: 100px;
+    height: 100px;
+    border: 3px solid rgb(210, 152, 76);
+    margin-left: 50px;
+    margin-top: 10px;
+}
+
+.card1 {
+    border: 1px solid rgb(210, 152, 76);
+    border-radius: 3px;
+    width: 200px;
+    height: 200px;
+}
+
+.a1 {
+    display: flex;
+    justify-content: space-around;
+}
+
+.card1 h2 {
+    text-align: center;
+    margin-right: 20px;
+}
+
+.card1 h3 {
+    text-align: center;
+    font-size: 18px;
+    color: rgb(210, 133, 32);
+    margin-left: 10px;
+}
+
+.card1 p {
+    text-align: center;
+    font-size: 25px;
+    color: rgb(210, 133, 32);
+    font-weight: bold;
+}
+
+.row2 {
+    margin-top: 20px;
+}
+
+.card2 img {
+    width: 100px;
+    height: 100px;
+    border: 3px solid rgb(210, 152, 76);
+    margin-left: 50px;
+    margin-top: 10px;
+}
+
+.card2 {
+    border: 1px solid rgb(210, 152, 76);
+    border-radius: 3px;
+    width: 200px;
+    height: 200px;
+}
+
+.a2 {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 40px;
+}
+
+.card2 h2 {
+    text-align: center;
+    margin-right: 20px;
+}
+
+.card2 h3 {
+    text-align: center;
+    font-size: 18px;
+    color: rgb(210, 133, 32);
+    margin-left: 10px;
+}
+
+.card2 p {
+    text-align: center;
+    font-size: 25px;
+    color: rgb(210, 133, 32);
+    font-weight: bold;
+}
+
+footer {
+    margin-top: 80px;
+    background-color: rgb(11, 43, 85);
+    height: 60px;
+
+}
+
+footer p {
+    font-size: 30px;
+    text-align: center;
+    color: rgb(210, 133, 32);
+
+}
+
+footer label {
+    display: flex;
+    font-size: 20px;
+    color: rgb(210, 133, 32);
+    justify-content: center;
+}

@@ -1,0 +1,18 @@
+
+									
+									AULA 18
+
+	ENCAPSULAMENTO - É um conceito que envolve o ocultamento de detalhes e implementação de uma classe, ele ajuda a proteger os dados limitando o acesso direto.
+
+	HERANÇA / COMPOSIÇÃO / AGREGAÇÃO - Erda um complemento para as classes como forma de herança.
+
+	PACOTES E CLASSES - Classes armazena metodos e atributos e pode conter subclasses, intancias objetos espcificos a partir de uma classe , pacotes fornece 
+funcionalidade especifica, conjunto de códigos para reutilizar e facilitar o desenvolvimento.
+
+ 	POLIMORFISMO - Superclasse com subclasses, a subclasse pode ser diferentes mais com metodos iguais, sobreposição uma classe sobreposta a outra, torna o código flexivel ao usuario, varias formas de excutar funções dentro de um comando.
+
+	CLASSE INTERNA - São uma adição mais recente da linguagem JS, a classe interna é uma classe dentro de uma outra classe, classes anônimas são as que não tem indentificação, atributos e metodos, atributos são complementos classe são atributos. 
+
+	CLASSE ABSTRATA / INTERFACE - modelo ou plano para criar algo, mais não é especifica e completa, espécie de esboço, definindo coisas em comum, usadas indiretamente, interface é como um contrato uma clase implementa a interface concordando em fornecer certas funcionalidades e como serão realizadas, diferenças entre classes abstratas e interfaces é a classe abstrata possui partes ja definidas como padrão e pode ter personalização, e interface é a verificação basica.
+
+	OBS: Diferença de bibliotecas e pacotes - pacotes sao pastas que os programas são separados por classes e bibliotecas armazena os pacotes com códigos pré programados.

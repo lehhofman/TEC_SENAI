@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: antiquewhite;
+}
+
+nav {
+    display: flex;
+    height: 7vh;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    background-color: blanchedalmond;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(209, 158, 81);
+}
+
+nav .pesquisa {
+    display: flex;
+    align-items: center;
+}
+
+nav .pesquisa input {
+    width: 30vw;
+    padding: 8px;
+    margin-left: 600px;
+    border-radius: 100px;
+    outline: none;
+}
+
+nav .pesquisa img {
+    transform: translateX(-50px);
+    width: 2rem;
+    height: 2rem;
+}
+
+nav .site {
+    display: flex;
+    align-items: center;
+    gap: 70px;
+    font-size: 1.5em;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+nav .site img {
+    justify-content: end;
+    margin-right: 50px;
+    width: 4vh;
+    filter: invert(100%);
+}
+
+main .categorias {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5em;
+    height: 3em;
+    background-color: bisque;
+}
+
+main .categorias p {
+    font-size: 1.5rem;
+    color: rgb(209, 158, 81);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.filtro {
+    display: flex;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+main .filtro1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 200px;
+    width: 300px;
+    margin: 3rem;
+    gap: 1.0rem;
+    border: 3px solid rgb(209, 158, 81);
+    color: rgb(209, 158, 81);
+    background-color: blanchedalmond;
+}
+
+main .filtro .filtro-p {
+    margin-bottom: 1.8rem;
+}
+
+main .filtro p {
+    font-size: 1.5rem;
+    font-family: 'Times New Roman', Times, serif;
+    text-transform: uppercase;
+    color: rgb(209, 158, 81);
+}
+
+.produto {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0px 5rem 0px 5rem;
+    gap: 1.70rem;
+}
+
+.itens img {
+    position: relative;
+    margin-bottom: -5px;
+    margin-left: 50px;
+    width: 15vw;
+    height: 25vh;
+    position: relative;
+    border: 1px solid rgb(209, 158, 81);
+    border-radius: 3px;
+}
+
+.itens p {
+    text-align: center;
+    margin-left: 80px;
+    width: 222px;
+    height: 50px;
+    color: rgb(209, 158, 81);
+    background-color: blanchedalmond;
+    text-transform: uppercase;
+    font-size: 1.5vw;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+.itens1 {
+    display: flex;
+    position: relative;
+    border: 1px solid blanchedalmond;
+    border-radius: 3px;
+    gap: 30px
+}
+
+.itens1 img {
+    position: relative;
+    margin-bottom: -5px;
+    margin-left: 50px;
+    width: 15vw;
+    height: 25vh;
+    position: relative;
+    border: 1px solid rgb(209, 158, 81);
+    border-radius: 3px;
+}
+
+.itens1 p {
+    text-align: center;
+    margin-left: 80px;
+    width: 222px;
+    height: 50px;
+    color: rgb(209, 158, 81);
+    background-color: blanchedalmond;
+    text-transform: uppercase;
+    font-size: 1.5vw;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+footer {
+    padding: 20px;
+    background-color: bisque;
+    height: 10vh;
+}
+
+footer .contato {
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+footer .contato-1 {
+    display: flex;
+    gap: 80px;
+    color: rgb(203, 140, 47);
+}
+
+footer p {
+    display: flex;
+    font-size: 1.7rem;
+    color: rgb(209, 145, 49);
+}

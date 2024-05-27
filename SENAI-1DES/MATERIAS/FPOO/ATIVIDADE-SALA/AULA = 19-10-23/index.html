@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Projeto</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <h1>CÁLCULADORA TRABALHISTA</h1>
+    
+    <form id="formPessoa">
+
+        <input type="text"id="nome" name="nome"placeholder="Digite um nome:">
+        <input type="number"id="salario" name="salario" placeholder="Digite um salario:">
+
+        <input type="submit" id="enviar" value="Enviar" onclick="">
+        <input type="submit" id="excluir" value="Apagar" onclick="">
+
+    </form>
+
+    <div class="cards">
+
+        <div class="card model">
+
+            <h2 id="nomeValor">Exemplo</h2>
+            <h4 id="salarioValor">0000</h4>
+            <h4 id="salarioBase">0000</h4>
+            <h4 id="salarioLiquido">0000</h4>
+
+            <div class="botao">
+
+                <button id="excluir" onclick="deletarCard()">Excluir Funcionário</button>
+                <button id="modificar" onclick="modificarCard()">Modificar</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+<script src="pessoas.js"></script>
+<script src="viewcontroller.js"></script>
+
+</html>

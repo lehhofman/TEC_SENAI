@@ -1,0 +1,145 @@
+body{
+
+    background-color: rgb(208, 157, 255);
+
+}
+
+.card{
+
+    width: 300px;
+    height: 70%;
+    border-radius: 15px;
+    border:1px solid black;
+    padding:10px;
+    background-color: rgb(171, 124, 214);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5)
+
+}
+
+h2{
+
+    font-size: 30px;
+    text-align: center;
+    color: beige;
+
+}
+
+.model{
+
+    display:none;
+
+}
+
+h1{
+
+    text-align: center;
+    font-size: 40px;
+    color: rgb(120, 66, 171);
+
+}
+
+form{
+
+    text-align: center;
+    padding: 20px;
+
+}
+
+.cards{
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-left: 20px;
+    
+}
+
+.salario{
+
+    font-size: 150%;
+    color: beige;
+
+}
+
+.inss{
+
+    font-size: 150%;
+    color: beige;
+
+}
+
+.salarioBase{
+
+    font-size: 150%;
+    color: beige;
+
+}
+
+.irrf{
+
+    font-size: 150%;
+    color: beige;
+
+}
+
+.salarioLiquido{
+
+    font-size: 150%;
+    color: beige;
+
+}
+
+form > #nome{
+
+    width: 30%;
+    height: 30px;
+    border-radius: 50px;
+    text-align: center;
+
+}
+
+form > #salario{
+
+    width: 30%;
+    height: 30px;
+    border-radius: 50px;
+    text-align: center;
+
+}
+
+form > #enviar{
+
+    border-radius: 50px;
+    width: 7%;
+    height: 40px;
+    background-color: beige;
+
+}
+
+form > #excluir{
+
+    border-radius: 50px;
+    width: 7%;
+    height: 40px;
+    background-color: beige;
+    
+}
+
+#deletar{
+
+    margin-left: 80px;
+    border-radius: 50px;
+    height: 50px;
+    background-color: beige;
+
+}
+
+.botao{
+
+    margin-left: 90px;
+    width: 100px;
+    border-radius: 50px;
+    height: 50px;
+    background-color: beige;
+
+}

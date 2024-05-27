@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    background-color: rgb(241, 210, 68);
+    height: 50px;
+}
+.parte1{
+    display: flex;
+    margin-left: 20px;
+}
+.parte1 b{
+    margin-left: 30px;
+    margin-top: 20px;
+    color: aliceblue;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.parte2{
+    display: flex;
+    margin-left: 1550px;
+}
+.parte2 b{
+    margin-left: 30px;
+    margin-top: -20px;
+    color: orangered;
+    font-family: Arial, Helvetica, sans-serif;
+}
+nav{
+    background-color: black;
+    height: 40px;
+    margin-top: 8px;
+}
+nav img{
+    width: 20px;
+    height: 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+nav p{
+    display: flex;
+    margin-left: 40px;
+    margin-top: -25px;
+    color: white;
+    font-size: 20px;
+}
+nav .a p{
+    display: flex;
+    margin-left: 120px;
+    margin-top: -23px;
+    color: rgb(241, 210, 68);
+}
+.pesquisar{
+    background-image: url(img/background.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 91vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pesquisar div{
+    background-color: rgba(255, 255, 255, 0.308);
+    padding: 40px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.pesquisar h3{
+    font-size: 25px;
+    color: aliceblue;
+}
+.pesquisar img{
+    width: 30px;
+    height: 20px;
+    margin-top: 80px;
+}
+.d{
+    margin-left: 30px;
+}
+.d input{
+    width: 250px;
+    height: 35px;
+}
+
+

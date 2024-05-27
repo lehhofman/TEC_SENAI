@@ -1,0 +1,108 @@
+*{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body{
+
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(148, 97, 200);
+
+}
+
+main{
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgb(45, 22, 66);
+}
+
+h1{
+
+    color: rgb(88, 45, 128);
+    padding: 5%;
+
+}
+
+.form{
+
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom:5px;
+
+}
+
+.enviar, .deletar{
+
+    width: 15%;  
+    border-radius: 50px;
+    padding:10px;
+    background-color: rgb(186, 127, 241);
+    color: aliceblue;
+
+}
+
+.form > #nome, #salario{
+
+    width: 30%;
+    border-radius: 20px;
+    padding:10px;
+    background-color: rgb(252, 252, 252);
+    
+}
+
+#pagamentos{
+
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+main > #pagamentos > div{
+
+    border:1px solid black;
+    display:flex;
+    flex-direction: column;
+    width: 25%;
+    height: 200px;
+    margin:20px;
+    background-color: rgb(166, 127, 202);
+
+}
+
+.funcionario{
+
+    display: flex;
+    color: rgb(79, 41, 116);
+
+}
+
+h2{
+
+    padding: 15px;
+
+}
+
+
+.salarios{
+
+    display:grid;
+    grid-template-columns: 50% 50%;
+    padding:20px;
+
+}

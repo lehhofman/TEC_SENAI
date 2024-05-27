@@ -1,0 +1,187 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: large;
+    
+}
+
+body{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #f5f5f5;
+}
+
+header{
+    top: 0px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header section{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.menu{
+    justify-content: space-around;
+}
+
+.titulo{
+    justify-content: center;
+}
+
+.menu button{
+    margin: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+    padding: 10px;
+    min-width: 160px;
+    border: none;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.titulo h1{
+    margin: 10px;
+    padding: 10px;
+    font-size: 36px;
+    color: rgb(255, 135, 249);
+    text-shadow: 1px 1px 3px #a99;
+}
+
+.icone{
+    width: 40px;
+}
+
+main{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main section{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+}
+
+main section img{
+    max-width: 30vw;
+    margin: 50px;
+    border-bottom-right-radius: 250px;
+}
+
+main section p{
+    max-width: 30vw;
+    margin: 50px;
+    border-bottom-right-radius: 250px;
+    word-spacing: 10px;
+    font-size: 25px;
+    font-style: italic;
+    text-align: justify;
+}
+
+table{
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    border-collapse: collapse;
+}
+
+table tr{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-bottom-right-radius: 300px;
+    background-color: rgba(0,0,0,0.1);
+}
+
+table tr td{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+}
+
+table tr td{
+    word-spacing: 10px;
+    font-size: 25px;
+    font-style: italic;
+    text-align: justify;
+}
+
+table tr td img{
+    object-fit: cover;
+    object-position:top;
+    width: 300px;
+    max-height: 400px;
+    border-bottom-right-radius: 200px;
+}
+
+form{
+    display: grid;
+    grid-template-columns: 10vw 30vw;
+    align-items: center;
+    margin: 20px;
+}
+
+input, textarea, button{
+    margin: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+button{
+    font-weight: bold;
+    padding: 10px;
+    cursor: pointer;
+}
+
+footer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h2{
+    margin: 10px;
+    padding: 10px;
+    font-size: 30px;
+}
