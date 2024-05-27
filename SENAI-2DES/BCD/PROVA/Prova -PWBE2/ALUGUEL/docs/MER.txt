@@ -1,0 +1,4 @@
+Tabela Veículo:(Placa [Chave primária],Modelo, Marca, TipoDiária)
+Tabela Cliente: (CPF [Chave primária], Nome)
+Tabela Telefone: (CPF [Chave estrangeira], Telefone)
+Tabela Reserva: (Placa [Chave estrangeira], CPF_cliente [Chave estrangeira], Data_reserva, Data_retirada, Data_devolucao, DiasStatus, Subtotal)

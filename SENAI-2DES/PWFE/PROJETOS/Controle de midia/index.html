@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de midia</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Controle de midia</h1>
+
+        <div class="player">
+
+            <div class="cover-container">
+                <img id="coverImage" src="cover2.jpg" alt="Capa do album">
+            </div>
+
+            <audio id="audioPlayer" controls>
+                <source src="song1.mp3" type="audio/mpeg"></source>
+            </audio>
+
+            <div class="controls">
+                <button class="previous" id="prevButton"><</button>
+                <button class="play" id="playPauseButton">►</button>
+                <button class="next" id="nextButton">></button>
+            </div>
+
+        </div>
+
+        <div class="playlist">
+
+            <h2>Playlist</h2>
+
+            <ul id="playlist">
+                <li data-src="song1.mp3 class=song-item">
+                    <img src="cover2.jpg" alt="cover album">
+                    Musica 1
+                </li>
+                <li data-src="song2.mp3 class=song-item">
+                    <img src="cover3.jpg" alt="cover album">
+                    Musica 2
+                </li>
+                <li data-src="song3.mp3 class=song-item">
+                    <img src="cover1.jpg" alt="cover album">
+                    Musica 3
+                </li>
+            </ul>
+            
+        </div>
+
+    </div>
+    
+</body>
+
+<script src="script.js"></script>
+
+</html>

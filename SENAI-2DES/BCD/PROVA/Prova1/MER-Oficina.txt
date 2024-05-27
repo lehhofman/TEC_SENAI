@@ -1,0 +1,7 @@
+# Tabela Oficina
+## MER - Tabela Oficina
+
+- Veiculo(Placa [chave primária], Modelo, Marca, Ano);
+- Manutencao(Id_Manutencao [chave primária], Inicio_Manutencao, Fim_Manutencao, Descricao);
+- Funcionario(Matricula [chave primária], Nome);
+- Telefone(Matricula [chave estrangeira], Numero);

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>borracharia</title>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+
+    <header>
+        
+        <nav>
+
+            <a href="./index.html"> Listar Produtos</a>
+            <a href="./cliente.html">Listar Clientes</a>
+            <a href="./fornecedor.html">Listar Fornecedores</a>
+            
+        </nav>
+
+    </header>
+
+    <main>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>id</th>
+                    <th>Nome</th>
+                    <th>Endereço</th>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                    <th>Valor</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody id="dados"></tbody>
+
+        </table>
+
+        <h2>Adicionar Novo Produto</h2>
+        <form id="formProduto">
+            <label for="id">ID:</label>
+            <input type="text" id="id" name="id"><br>
+
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome"><br>
+
+            <label for="descricao">Endereço:</label>
+            <input type="text" id="descricao" name="descricao"><br>
+
+            <label for="Produto">Produto:</label>
+            <input type="text" id="Produto" name="Produto"><br>
+
+            <label for="Quantidade">Quantidade:</label>
+            <input type="text" id="Quantidade" name="Quantidade"><br>
+
+            <label for="valor">Valor:</label>
+            <input type="text" id="valor" name="valor"><br>
+
+            <button type="button" onclick="cadastrarProduto()">Cadastrar</button>
+        </form>
+
+    </main>
+    
+    <footer>By Borracharia</footer>
+
+    <script src="cliente.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.containers{
+    background-color:#171a25;
+    height: 820px;
+}
+
+.navbar-nav .nav-link {
+    letter-spacing: 3px;
+    margin-right: 10vh;
+    color: white; 
+    font-weight: bold; 
+    font-size: 20px;
+}
+
+.navbar {
+    background-color: #000000;
+}
+
+.navbar-nav .nav-link:hover{
+    color: #25ca25;
+}
+
+#dadosClientes {
+    width: 60%; 
+    border-collapse: collapse;
+    margin-top: 280px;
+    margin-left: 350px;
+}
+
+#dadosClientes,  th,
+#dadosClientes td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    color: black;
+    text-align: center;
+    background-color: #ddd;
+}
+
+#dadosClientes th {
+    background-color: #25ca25;
+    color: #474545;
+    text-align: center;
+}
+
+#dadosClientes tr:nth-child(even) {
+    color: #000000; 
+    text-align: center;
+}
+
+#dadosClientes tr:hover {
+    background-color: #ddd;
+}
+
+.rodape {
+    background-color: #000000;
+    text-align: center;
+    padding: 0.5px 0;
+}
+
+.text-muted{
+    margin-top: 20px;
+}
+
+strong{
+    color: aliceblue;
+}
+
+#dadosVeiculo {
+    width: 60%; 
+    border-collapse: collapse;
+    margin-top: 240px;
+    margin-left: 350px;
+}
+
+#dadosVeiculo,  th,
+#dadosVeiculo td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    color: black;
+    text-align: center;
+    background-color: #ddd;
+}
+
+#dadosVeiculo th {
+    background-color: #25ca25;
+    color: #474545;
+    text-align: center;
+}
+
+#dadosVeiculo tr:nth-child(even) {
+    color: #000000; 
+    text-align: center;
+}
+
+#dadosVeiculo tr:hover {
+    background-color: #ddd;
+}
+
+#dadosReservaContainer {
+    height: 780px; /* Altura fixa desejada */
+    overflow-y: auto; /* Habilita a rolagem vertical quando necessário */
+}
+
+#dadosReserva {
+    width: 60%; 
+    border-collapse: collapse;
+    margin-top: 40px;
+    margin-left: 350px;
+}
+
+#dadosReserva,  th,
+#dadosReserva td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    color: black;
+    text-align: center;
+    background-color: #ddd;
+}
+
+#dadosReserva th {
+    background-color: #25ca25;
+    color: #474545;
+    text-align: center;
+}
+
+#dadosReserva tr:nth-child(even) {
+    color: #000000; 
+    text-align: center;
+}
+
+#dadosReserva tr:hover {
+    background-color: #ddd;
+}
+

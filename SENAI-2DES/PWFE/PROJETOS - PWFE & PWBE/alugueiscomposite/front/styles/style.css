@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-nav .nav-link {
+    letter-spacing: 3px;
+    margin-right: 10vh;
+    color: white; 
+    font-weight: bold; 
+    font-size: 20px;
+}
+
+.navbar-nav .nav-link:hover{
+    color: #25ca25;
+}
+
+.navbar {
+    background-color: #000000;
+}
+
+.img1 {
+    width: 194vh;
+    height: 400px;
+}
+
+.containers{
+    background-color:#171a25;
+    padding-top: 110px; 
+}
+
+.image-text {
+    text-align: center;
+    font-weight: bold; 
+    color: white; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    padding: 10px;
+    border-radius: 10px; 
+    font-size: 52px;
+    letter-spacing: 3px;
+}
+
+.col-md-30 {
+    text-align: center;
+    font-size: 23px;
+    font-weight: bold; 
+    color: white; 
+    text-shadow: 2px 2px 4px black; 
+    padding: 10px;
+    border-radius: 10px; 
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+    margin-top: 50px;
+    letter-spacing: 2px;
+}
+
+.button-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color:  #21b421c5;
+    color: white; 
+    text-decoration: none;
+    border-radius: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    transition: background-color 0.3s ease;
+    margin-top: 60px;
+}
+
+.button-link:hover {
+    background-color: #004d00; 
+}
+
+.rodape {
+    background-color: #000000;
+    text-align: center;
+    padding: 0.5px 0;
+}
+
+.text-muted{
+    margin-top: 20px;
+}
+
+strong{
+    color: aliceblue;
+}
+

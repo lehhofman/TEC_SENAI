@@ -1,0 +1,14 @@
+viagens
+
+3 tabelas 
+
+destino = destino / valor / data / 
+
+pontos turistico = ponto / endereço / telefone / valor
+
+hoteis = hotel / valor / avaliação / email / site
+
+criar tres tabelas com esses dados no prisma, fazer o relacionamento da tabela 
+
+ponto turistico e hotel é ligado ao destino, possuido duas chaves estrangeias, criar o
+crud de cada ma das tabelas e as rotas

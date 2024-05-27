@@ -1,0 +1,16 @@
+teste insomnia = Usuario -> post:
+
+ {
+  "nome": "leticia",
+  "email": "leticia@exemplo.com",
+  "senha": "senha183"
+}
+
+teste insomnia = Tarefas -> post:
+
+{
+	"descricao": "Descrição da tarefa",
+	"data_de_vencimento": "2024-03-21",
+	"status": "Pendente",
+	"id_do_usuario": 6
+}

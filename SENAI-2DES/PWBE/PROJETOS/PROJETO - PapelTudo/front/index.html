@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventário</title>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+
+    <main>
+            <section class="container">
+
+                <div class="form-container">
+
+                    <section class="container1">
+
+                        <h1>Inventário - PapelTudo</h1>
+
+                    </section>
+
+                    <form id="item-form">
+
+                        <div class="form-group">
+
+                            <label for="id">ID:</label>
+                            <input type="text" id="id" name="id" required>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="name">Nome:</label>
+                            <input type="text" id="name" name="nome" required>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="description">Descrição:</label>
+                            <textarea id="description" name="descricao" required></textarea>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="value">Valor:</label>
+                            <input type="number" id="value" name="valor" step="0.01" required>
+
+                        </div>
+
+                        <button type="submit">Cadastrar</button>
+
+                    </form>
+
+                </div>
+
+                <div id="message" class="message"></div>
+
+            </div>
+
+            <div class="tabela-inventario">
+
+                <h2>Items</h2>
+
+                <div class="tab">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Id</th>
+                                <th>Nome</th>
+                                <th>Descrição</th>
+                                <th>Valor</th>
+                                <th>Ação</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="items-list">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+            <div class="mensagens-sistema">
+
+                <p>Mensagem do Sistema:</p>
+                <p>Patrimônio Total: <span id="total-value">0.00</span></p>
+
+            </div>
+
+        </section>
+        
+    </main>
+
+    <footer>
+
+        <p>By Leticia</p>
+
+    </footer>
+
+    <script src="./script.js"></script>
+
+</body>
+
+</html>

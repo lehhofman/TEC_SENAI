@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Tarefas</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-#124665">
+
+        <div class="container">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modallogin">Login</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="tarefas.html">Tarefas</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modalCriarTarefa">Criar</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modalContato">Contato</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+    
+    <div class="modal fade" id="modalContato" tabindex="-1" aria-labelledby="modalContatoLabel" aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    
+                    <h5 class="modal-title" id="modalContatoLabel">Contato</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+
+                </div>
+
+                <div class="modal-body">
+
+                    <div id="conteudoContato">
+
+                        <form>
+
+                            <div class="mb-3">
+
+                                <label for="nome" class="form-label">Nome</label>
+                                <input type="text" class="form-control" id="nome" placeholder="Seu nome">
+
+                            </div>
+
+                            
+                            <div class="mb-3">
+
+                                <label for="telefone" class="form-label">Telefone</label>
+                                <input type="telefone" class="form-control" id="telefone" placeholder="Seu telefone">
+
+                            </div>
+
+                            <div class="mb-3">
+
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Seu email">
+
+                            </div>
+
+                            <div class="mb-3">
+
+                                <label for="mensagem" class="form-label">Mensagem</label>
+                                <textarea class="form-control" id="mensagem" rows="3" placeholder="Sua mensagem"></textarea>
+
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" action="home.html">Enviar</button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    
+    <div class="modal fade" id="modallogin" tabindex="-1" aria-labelledby="modalContatoLabel" aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    
+                    <h5 class="modal-title-center" id="modalContatoLabel">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+
+                </div>
+
+                <div class="modal-body">
+
+                    <div id="conteudoContato">
+
+                        <form id="loginForm">
+
+                            <div class="mb-3">
+
+                                <label for="email" class="form-label">Email:</label>
+                                <input type="email" class="form-control" id="loginEmail" placeholder="Seu email">
+
+                            </div>
+
+                            <div class="mb-3">
+
+                                <label for="senha" class="form-label">Senha:</label>
+                                <input type="password" class="form-control" id="loginSenha" placeholder="Sua senha">
+
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">login</button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="modal fade" id="modalCriarTarefa" tabindex="-1" aria-labelledby="modalCriarTarefaLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalCriarTarefaLabel">Criar Nova Tarefa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formNovaTarefa">
+                        <div class="mb-3">
+                            <label for="descricao" class="form-label">Descrição</label>
+                            <input type="text" class="form-control" id="descricao" placeholder="Descrição da tarefa">
+                        </div>
+                        <div class="mb-3">
+                            <label for="dataVencimento" class="form-label">Data de Vencimento</label>
+                            <input type="date" class="form-control" id="dataVencimento">
+                        </div>
+                        <div class="mb-3">
+                            <label for="status" class="form-label">Status</label>
+                            <select class="form-select" id="status">
+                                <option value="pendente">Pendente</option>
+                                <option value="concluído">Concluído</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="usuario" class="form-label">Usuário</label>
+                            <select class="form-select" id="usuario">
+                                <option value="maria@example.com">Maria</option>
+                                <option value="joao@example.com">João</option>
+                                <option value="dalva@example.com">Dalva</option>
+                                <option value="ursulo@example.com">Ursulo</option>
+                                <option value="lack@example.com">Lack</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Criar Tarefa</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="principal">
+
+        <h1>GERENCIADOR DE TAREFAS</h1>
+        <h3>Aqui você organiza suas tarefas para facilitar seu dia a dia!</h3>
+
+    </div>
+    
+    <div class="container feature" id="info">
+
+        <div class="col-md-6">
+
+            <img src="cover-kanban-board-online.jpg" class="img1" alt="Imagem">
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-30">
+                
+                <p>
+                    Bem-vindo ao nosso site de gerenciamento de tarefas, onde simplificamos sua vida diária, ajudando-o a manter-se organizado e produtivo. 
+                    Com nosso intuitivo sistema de gerenciamento de tarefas,você pode visualizar suas atividades pendentes, adicionar novas tarefas conforme
+                    necessário e marcar as concluídas com facilidade.
+                </p>
+
+                <a href="#" class="button-link" id="loginLink">Login</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="rodape">
+
+        <address class="text-muted">
+            
+            <strong>© 2024 Gerenciador de Tarefas. Todos os direitos reservados.</strong>
+        
+        </address>
+
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <script>
+         // Array de usuários
+         var usuarios = [
+            { email: "maria@example.com", senha: "senha123" },
+            { email: "joao@example.com", senha: "senha456" },
+            { email: "dalva@example.com", senha: "senha789" },
+            { email: "ursulo@example.com", senha: "senha098" },
+            { email: "lack@example.com", senha: "senha765" }
+        ];
+
+        // Verificar credenciais e redirecionar após o login
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Evita o envio do formulário padrão
+
+            // Obtenha os valores dos campos de email e senha
+            var inputEmail = document.getElementById("loginEmail").value;
+            var inputSenha = document.getElementById("loginSenha").value;
+
+            // Verificar as credenciais
+            var usuarioEncontrado = usuarios.find(function(usuario) {
+                return usuario.email === inputEmail && usuario.senha === inputSenha;
+            });
+
+            // Se as credenciais estiverem corretas, redirecione para a próxima página (por exemplo, 'tarefas.html')
+            if (usuarioEncontrado) {
+                // Redirecionar para tarefas.html com o email do usuário como parâmetro de consulta na URL
+                window.location.href = "tarefas.html?email=" + encodeURIComponent(inputEmail);
+            } else {
+                // Caso contrário, exiba uma mensagem de erro
+                alert("Credenciais inválidas. Tente novamente.");
+            }
+        });
+
+        document.getElementById("loginLink").addEventListener("click", function(event) {
+        event.preventDefault(); // Evita o comportamento padrão do link
+        
+        // Abra o modal de login
+        var loginModal = new bootstrap.Modal(document.getElementById('modallogin'));
+        loginModal.show();
+    });
+
+    var tarefasPorUsuario = {
+            "maria@example.com": [
+                { descricao: "Fazer compras", dataVencimento: "2024-03-20", status: "pendente", userID: "maria@example.com" },
+                { descricao: "Ler livro", dataVencimento: "2024-03-22", status: "pendente", userID: "maria@example.com" },
+                { descricao: "Estudar para prova", dataVencimento: "2024-03-25", status: "pendente", userID: "maria@example.com" },
+                { descricao: "Limpar Casa", dataVencimento: "2024-04-25", status: "pendente", userID: "maria@example.com" },
+                { descricao: "Limpar cr", dataVencimento: "2024-03-31", status: "pendente", userID: "maria@example.com" },
+                { descricao: "Fazer compras", dataVencimento: "2024-03-13", status: "concluido", userID: "maria@example.com" }
+            ],
+            "joao@example.com": [
+                { descricao: "Consertar bicicleta", dataVencimento: "2024-03-21", status: "pendente", userID: "joao@example.com" },
+                { descricao: "Ir ao médico", dataVencimento: "2024-04-23", status: "pendente", userID: "joao@example.com" },
+                { descricao: "Enviar relatório", dataVencimento: "2024-03-26", status: "pendente", userID: "joao@example.com" },
+                { descricao: "Estudar musica", dataVencimento: "2024-03-25", status: "pendente", userID: "joao@example.com" },
+                { descricao: "Fazer mercado", dataVencimento: "2024-04-13", status: "pendente", userID: "joao@example.com" },
+                { descricao: "Academia", dataVencimento: "2024-03-25", status: "pendente", userID: "joao@example.com" }
+            ],
+            "dalva@example.com": [
+                { descricao: "Limpar casa", dataVencimento: "2024-03-20", status: "pendente", userID: "dalva@example.com" },
+                { descricao: "Preparar jantar", dataVencimento: "2024-03-22", status: "pendente", userID: "dalva@example.com" },
+                { descricao: "Fazer exercícios", dataVencimento: "2024-03-25", status: "pendente", userID: "dalva@example.com" },
+                { descricao: "Limpar Casa", dataVencimento: "2024-03-21", status: "pendente", userID: "dalva@example.com" },
+                { descricao: "Consulta médica", dataVencimento: "2024-04-13", status: "pendente", userID: "dalva@example.com" },
+                { descricao: "Aniversário", dataVencimento: "2024-03-27", status: "pendente", userID: "dalva@example.com" }
+            ],
+            "ursulo@example.com": [
+                { descricao: "Reunião de trabalho", dataVencimento: "2024-03-21", status: "pendente", userID: "ursulo@example.com" },
+                { descricao: "Pagar contas", dataVencimento: "2024-03-23", status: "pendente", userID: "ursulo@example.com" },
+                { descricao: "Planejar viagem", dataVencimento: "2024-03-26", status: "pendente", userID: "ursulo@example.com" },
+                { descricao: "Ir ao cartório", dataVencimento: "2024-03-26", status: "pendente", userID: "ursulo@example.com" },
+                { descricao: "Buscar Mãe no Aeroporto", dataVencimento: "2024-03-13", status: "concluido", userID: "ursulo@example.com" },
+                { descricao: "Viagem", dataVencimento: "2024-08-26", status: "pendente", userID: "ursulo@example.com" }
+            ],
+            "lack@example.com": [
+                { descricao: "Estudar inglês", dataVencimento: "2024-03-20", status: "pendente", userID: "lack@example.com" },
+                { descricao: "Ir ao dentista", dataVencimento: "2024-03-22", status: "pendente", userID: "lack@example.com" },
+                { descricao: "Resolver problema no computador", dataVencimento: "2024-03-25", status: "pendente", userID: "lack@example.com" },
+                { descricao: "Limpar Casa", dataVencimento: "2024-05-25", status: "pendente", userID: "lack@example.com" },
+                { descricao: "Academia", dataVencimento: "2024-03-14", status: "concluido", userID: "lack@example.com" },
+                { descricao: "Ir a oficina", dataVencimento: "2024-06-24", status: "pendente", userID: "lack@example.com" }
+            ]
+        };
+    
+        // Função para renderizar as tarefas na página
+        function renderizarTarefas(emailUsuario) {
+            var tarefas = tarefasPorUsuario[emailUsuario];
+            var html = '';
+            tarefas.forEach(function(tarefa, index) {
+                html += '<div class="card">';
+                html += '<div class="card-body">';
+                html += '<h5 class="card-title">' + tarefa.descricao + '</h5>';
+                html += '<p class="card-text">Data de Vencimento: ' + tarefa.dataVencimento + '</p>';
+                html += '<p class="card-text">Status: ' + tarefa.status + '</p>';
+                html += '<div class="button-group">';
+                html += '<button class="btn btn-success" onclick="marcarConcluido(' + index + ', \'' + emailUsuario + '\')">Marcar como Concluído</button>';
+                html += '<button class="btn btn-danger" onclick="excluirTarefa(' + index + ', \'' + emailUsuario + '\')">Excluir</button>';
+                html += '</div>';
+                html += '</div>';
+                html += '</div>';
+            });
+            document.getElementById('tarefas').innerHTML = html;
+        }
+    
+        // Função para adicionar uma nova tarefa
+        function adicionarTarefa(emailUsuario, descricao, dataVencimento, status) {
+            var novaTarefa = {
+                descricao: descricao,
+                dataVencimento: dataVencimento,
+                status: status,
+                userID: emailUsuario
+            };
+            tarefasPorUsuario[emailUsuario].push(novaTarefa);
+            renderizarTarefas(emailUsuario);
+        }
+    
+        // Função para marcar uma tarefa como concluída
+        function marcarConcluido(index, emailUsuario) {
+            tarefasPorUsuario[emailUsuario][index].status = 'concluído';
+            renderizarTarefas(emailUsuario);
+        }
+    
+        // Função para excluir uma tarefa
+        function excluirTarefa(index, emailUsuario) {
+            tarefasPorUsuario[emailUsuario].splice(index, 1);
+            renderizarTarefas(emailUsuario);
+        }
+    
+        // Extrair o email do usuário da URL
+        const userEmail = new URLSearchParams(window.location.search).get('email');
+    
+        // Renderiza as tarefas para o usuário correspondente
+        renderizarTarefas(userEmail);
+    
+        // Evento para adicionar nova tarefa
+        document.getElementById('formNovaTarefa').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var descricao = document.getElementById('descricao').value;
+            var dataVencimento = document.getElementById('dataVencimento').value;
+            var status = document.getElementById('status').value;
+            var usuario = document.getElementById('usuario').value;
+            adicionarTarefa(usuario, descricao, dataVencimento, status);
+            $('#modalCriarTarefa').modal('hide'); // Fecha o modal após criar a tarefa
+            document.getElementById('formNovaTarefa').reset(); // Limpa o formulário
+        });
+
+        const key = "5627c578b85e4022fcddd89adefdd8db"
+
+function colocarDadosNaTela(dados){
+
+    document.querySelector(".cidade").innerHTML = "Tempo em " + dados.name
+    document.querySelector(".tem2").innerHTML = Math.floor(dados.main.temp) + "Cº"
+    document.querySelector(".texto-previsao").innerHTML = dados.weather[0].description
+    document.querySelector(".umd2").innerHTML = "Umidade: " + dados.main.humidity + "%"
+    document.querySelector(".img-previsao").src = "https://openweathermap.org/img/wn/" + dados.weather[0].icon + ".png"
+}
+
+async function buscarCidade(cidade){
+
+    const dados = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${key}&lang=pt_br&units=metric`).then (resposta => resposta.json ())
+
+    colocarDadosNaTela(dados)
+
+}
+
+
+function cliqueiNoBotao() {
+    
+    const cidade = document.querySelector(".input-cidade").value
+
+    buscarCidade(cidade)
+}
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e7e7d9;
+    background-image: url('img/img2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #b59d7e;
+}
+.navbar-brand {
+    color:#ffffff;
+    font-weight: bold;
+    font-size: 24px;
+    align-items: center;
+}
+.navbar-nav .nav-link {
+    color: #ffffff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    font-size: 20px;
+    margin-left: 95px;
+    margin-right: 125px;
+    text-decoration: none;
+}
+.navbar-nav .nav-link:hover {
+    color: #dbd6d6;
+}
+
+.img1{
+    width:60vh;
+    height: 45vh;
+    margin-top: 6vh;
+    margin-left:35vh;
+}
+
+.p{
+    color: #b59d7e;
+    font-size: 23px;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+}
+.row{
+    margin-top:60px;
+}
+.principal h1{ 
+    text-align: center;
+    font-weight: bolder;
+    color: #b59d7e;
+    margin: 10px 0;
+}
+.principal1 h1{ 
+    text-align: center;
+    font-weight: bolder;
+    color: #000000;
+    margin: 7px 0;
+}
+.principal h3{ 
+    text-align: center;
+    font-weight: bolder;
+    color: #cac3a2;
+    margin: 10px 0;
+}
+.rodape {
+    background-color: #d8d8bf;
+    text-align: center;
+    padding: 0.5px 0;
+    margin-top: 7vh;
+}
+
+.text-muted strong{
+    font-size: 20px;
+    margin-top: 5px;
+}

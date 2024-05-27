@@ -1,0 +1,110 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; 
+}
+
+nav{
+    width: 100%;
+    padding: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
+    background: #000;
+    padding: 10px 40px;
+    border-radius: 5px;
+    transition: 0.2s;
+    cursor: pointer; 
+}
+
+main{
+    width: 150%;
+    max-width: 1300px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-left: 35vh;
+}
+
+footer{
+    width: 100%;
+    padding: 20px;
+    background: #000;
+    color: #fff;
+    text-align: center;
+}
+
+table{
+    width: 150%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+tr:nth-child(even){
+    background: #ffdddd;
+}
+
+tr{
+    border-bottom: 1px solid #ccc;
+}
+
+th, td{
+    padding: 10px 70px;
+    text-align: left;
+}
+
+h1{
+    color: #fff;
+    text-align: center;
+}
+
+form {
+    width: 100%;
+    max-width: 5000px;
+    margin: 20px auto;
+    display: flex;
+    padding: 30px;
+    background: #f0f0f0;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: flex;
+    margin-bottom: 30px;
+    margin-top: 15px;
+    margin-left: 10px;
+    color: #333;
+}
+
+form input[type="text"],
+form button {
+    width: 140%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+form button {
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background: #333;
+}

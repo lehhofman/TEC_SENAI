@@ -1,0 +1,154 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ddeeed;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #124665;
+}
+.navbar-brand {
+    color:#ffffff;
+    font-weight: bold;
+    font-size: 24px;
+    align-items: center;
+}
+.navbar-nav .nav-link {
+    color: #ffffff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    font-size: 20px;
+    margin-left: 95px;
+    margin-right: 125px;
+    text-decoration: none;
+}
+.navbar-nav .nav-link:hover {
+    color: #dbd6d6;
+}
+.d-flex {
+    width: 400px;
+    margin-top: 5px;
+}
+.d-flex input {
+    border-radius: 20px;
+}
+.d-flex button {
+    margin-left: 10px;
+    border-radius: 20px;
+    background-color: #050505 ;
+}
+.img1{
+    width:70vh;
+    height: 40vh;
+    margin-top: 4vh;
+    margin-left:30vh;
+}
+.principal h1{ 
+    text-align: center;
+    font-weight: bolder;
+    color: #88baf3;
+    margin: 10px 0;
+}
+.principal1 h1{ 
+    text-align: center;
+    font-weight: bolder;
+    color: #000000;
+    margin: 7px 0;
+}
+.principal h3{ 
+    text-align: center;
+    font-weight: bolder;
+    color: #1ad889;
+    margin: 10px 0;
+}
+.principal {
+    /* background-color: #20dad8; */
+    text-align: center;
+    padding: 20px 0;
+}
+.principal1 {
+    background-color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+}
+.rodape {
+    background-color: #124665;
+    text-align: center;
+    padding: 0.5px 0;
+    margin-top: 7vh;
+}
+.text-muted strong{
+    font-size: 20px;
+    margin-top: 5px;
+    color: #ffffff;
+}
+.button-link {
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 5px;
+    background-color:#124665;
+    color: #fff; 
+    text-decoration: none; 
+    transition: all 0.3s ease; 
+    margin-top: 5vh;
+    margin-left: 63vh;
+  }
+  
+  .button-link:hover {
+    background-color: #ffffff;
+  }
+
+ #info  p{
+    text-align: center;
+    font-weight: bolder;
+    color: #148464;
+    margin: 12px 0;
+    font-size: 20px;
+  }
+
+.modal-body{
+    text-align: center;
+    color: #030303;
+    margin: 12px 0;
+    font-size: 20px;
+}
+.modal-title{
+    text-align: center;
+    color: #030303;
+    margin: 12px 0;
+    font-size: 20px;
+}
+.tarefa #tarefas{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 25vh;
+    margin-top: 10vh;
+}
+.tarefa{
+    width: 1700px;
+}
+
+.card {
+    width: calc(33.33% - 30px);
+    margin-bottom:6vh;
+}
+.button-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin-top: 10px;
+}
+.button-group button {
+    margin-bottom: 5px;
+}
+.card-title {
+    color: red; 
+    font-size: 20px;
+    font-weight: bolder;
+}

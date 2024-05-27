@@ -1,0 +1,18 @@
+body{
+    background-color:rgba(255, 249, 241, 0.89);
+}
+
+h1{
+    text-align: center;
+    color: red;
+}
+
+h3{
+    margin-left: 90px;
+    color: #5e5e5e;
+}
+
+p{
+    margin-left: 140px;
+    color: rgb(0, 38, 255);
+}

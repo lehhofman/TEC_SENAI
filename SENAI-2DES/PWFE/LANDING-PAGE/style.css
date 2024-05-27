@@ -1,0 +1,98 @@
+body {
+    background-image: url('assets/img/fundo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative; 
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    width: 1855px;
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+}
+
+.navbar-nav .nav-link {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+    margin-left: 250px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link {
+    color: #FFA500; 
+    font-weight: bold;
+}
+
+.container {
+    position: absolute; 
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+}
+
+.texto {
+    font-size: 2.5em; /* Tamanho da fonte igual ao tamanho da frase */
+    font-weight: bold;
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align:center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 200px; /* Espaçamento entre o texto e a imagem */
+    margin-top: 100px; /* Espaçamento entre o texto e a imagem */
+    padding-right: 150px; /* Espaçamento entre o texto e a imagem */
+    letter-spacing: 1px; /* Espaçamento entre as letras */
+}
+
+.res {
+    font-size: 0.5em;
+    color: rgba(255, 255, 255, 0.933);
+    text-align:center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.imagem img {
+    width: 50vh; 
+    margin-right: 400px;
+    margin-top: 100px;
+    animation: pulse 5s infinite alternate; /* Aplica a animação */
+}
+.btn{
+    background-color: #399e3c; 
+    border: 2px solid #FFFFFF;
+    border-radius: 20px; 
+    color: white; 
+    font-weight: bolder;
+    padding: 20px 60px; 
+    text-align: center; 
+    text-decoration: none; 
+    margin-top: 20px;
+    display: inline-block; 
+    font-size: 16px; 
+    cursor: pointer; 
+}
+
+.btn:hover {
+    background-color: #197a1d; /* Cor do botão ao passar o mouse */
+}

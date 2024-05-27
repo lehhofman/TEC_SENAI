@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css">
+    <title>Hortifrut-LH</title>
+    <link rel="icon" href="frutas.jpg" type="image/x-icon">
+
+    <style>
+        /* Estilos para o modal */
+        .modal {
+            display: none; /* Oculta o modal por padrão */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro semi-transparente */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="66" height="16" fill="currentColor" class="bi bi-basket2-fill" viewBox="0 0 16 16">
+            <path d="M5.929 1.757a.5.5 0 1 0-.858-.514L2.217 6H.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h.623l1.844 6.456A.75.75 0 0 0 3.69 15h8.622a.75.75 0 0 0 .722-.544L14.877 8h.623a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1.717L10.93 1.243a.5.5 0 1 0-.858.514L12.617 6H3.383zM4 10a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0zm3 0a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0zm4-1a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1"/>
+        </svg>
+
+        <h1>Cadastro de Compras</h1>
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="66" height="16" fill="currentColor" class="bi bi-basket2-fill" viewBox="0 0 16 16">
+            <path d="M5.929 1.757a.5.5 0 1 0-.858-.514L2.217 6H.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h.623l1.844 6.456A.75.75 0 0 0 3.69 15h8.622a.75.75 0 0 0 .722-.544L14.877 8h.623a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1.717L10.93 1.243a.5.5 0 1 0-.858.514L12.617 6H3.383zM4 10a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0zm3 0a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0zm4-1a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1"/>
+        </svg>
+
+    </header>
+
+    <nav>
+
+        <a href="./index.html"> Registros de Compras</a>
+        <a href="./form.html">Cadastrar Compras</a>
+        
+    </nav>
+
+    <main>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>CPF</th>
+                    <th>Nome Completo</th>
+                    <th>Produto</th>
+                    <th>Preço</th>
+                    <th>Quantidade</th>
+                    <th>Total da Compra</th>
+                    <th>Data / Hora da Compra</th>
+                    <th>Ações</th> 
+
+                </tr>
+
+            </thead>
+
+            <tbody id="dados"></tbody>
+
+        </table>
+
+    </main>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditModal()">&times;</span>
+            <h2>Editar Item</h2>
+            <form id="editForm">
+                <input type="hidden" id="editId" name="id">
+                <label for="editCpf">CPF:</label>
+                <input type="text" id="editCpf" name="cpf" required>
+                <label for="editNome">Nome:</label>
+                <input type="text" id="editNome" name="nome" required>
+                <label for="editProdutos">Produto:</label>
+                <input type="text" id="editProdutos" name="produtos" required>
+                <label for="editValor">Preço:</label>
+                <input type="text" id="editValor" name="valor" required>
+                <label for="editQuantidade">Quantidade:</label>
+                <input type="text" id="editQuantidade" name="quantidade" required>
+                <label for="editTotal">Total da Compra:</label>
+                <input type="text" id="editTotal" name="total" required>
+                <label for="editData">Data / Hora da Compra:</label>
+                <input type="datetime-local" id="editData" name="data" required>
+                <button type="button" onclick="submitEditForm()">Salvar</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+
+        <h2>By Leticia</h2>
+
+    </footer>
+    
+</body>
+
+<script>
+    const dados = document.getElementById('dados');
+
+    // Função para carregar os dados da API e renderizar na tabela
+    function carregarDados() {
+        fetch('http://localhost:3000/produtos')
+            .then(res => res.json())
+            .then(res => {
+                dados.innerHTML = ''; // Limpa os dados existentes na tabela
+                res.forEach(element => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${element.cpf}</td>
+                        <td>${element.nome}</td>
+                        <td>${element.produtos}</td>
+                        <td>${parseFloat(element.valor).toFixed(2)}</td>
+                        <td>${element.quantidade}</td>
+                        <td>${parseFloat(element.total).toFixed(2)}</td>
+                        <td>${element.data}</td>
+                        <td>
+                            <button onclick="confirmDelete(${element.id})">Delete</button>
+                            <button onclick="openUpdateModal(${element.id})">Update</button>
+                        </td>
+                    `;
+                    dados.appendChild(row);
+                });
+            });
+    }
+
+    // Função para exibir uma mensagem de confirmação antes de deletar um item
+    function confirmDelete(id) {
+        const confirmDelete = confirm('Você realmente deseja excluir esse cliente?');
+        if (confirmDelete) {
+            deleteItem(id);
+        }
+    }
+
+    // Função para deletar um item
+    function deleteItem(id) {
+        fetch(`http://localhost:3000/produtos/${id}`, { method: 'DELETE' })
+            .then(() => carregarDados())
+            .catch(error => console.error('Erro ao deletar item:', error));
+    }
+
+    // Função para abrir o modal de edição com os dados preenchidos
+    function openUpdateModal(id) {
+        fetch(`http://localhost:3000/produtos/${id}`)
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('editId').value = data.id;
+                document.getElementById('editCpf').value = data.cpf;
+                document.getElementById('editNome').value = data.nome;
+                document.getElementById('editProdutos').value = data.produtos;
+                document.getElementById('editValor').value = data.valor;
+                document.getElementById('editQuantidade').value = data.quantidade;
+                document.getElementById('editTotal').value = data.total;
+                document.getElementById('editData').value = data.data;
+                document.getElementById('editModal').style.display = 'block';
+            })
+            .catch(error => console.error('Erro ao carregar dados para edição:', error));
+    }
+
+    // Função para fechar o modal de edição
+    function closeEditModal() {
+        document.getElementById('editModal').style.display = 'none';
+    }
+
+    // Função para submeter o formulário de edição
+    function submitEditForm() {
+        const formData = new FormData(document.getElementById('editForm'));
+        const id = formData.get('id');
+        fetch(`http://localhost:3000/produtos/${id}`, {
+            method: 'PUT',
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                closeEditModal();
+                carregarDados();
+            } else {
+                throw new Error('Erro ao atualizar o item');
+            }
+        })
+        .catch(error => console.error('Erro:', error));
+    }
+
+    // Carrega os dados quando a página é carregada
+    window.onload = carregarDados;
+
+    
+</script>
+
+</html>

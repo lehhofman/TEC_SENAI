@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+</head>
+
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+}
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #0056b3;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    margin: auto;
+    text-align: center; 
+    margin-top: 60px;
+}
+h2 {
+    text-align: center;
+    color: #333333;
+    margin-top: 260px;
+    font-size: 30px;
+}
+label {
+    font-weight: bold;
+    color: #333333;
+}
+input[type="email"],input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border: 1px solid #0056b3;
+}
+button{
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+button:hover {
+    background-color: #0056b3;
+}
+</style>
+
+<body>
+    <h2>Bem Vindo!</h2>
+    <form id="loginForm">
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" autocomplete="email"><br>
+        <label for="senha">Senha:</label><br>
+        <input type="password" id="senha" name="senha" autocomplete="current-password"><br><br>
+        <button type="button" onclick="login()">Entrar</button>
+    </form>
+
+    <script>
+        function login() {
+            var email = document.getElementById("email").value;
+            var senha = document.getElementById("senha").value;
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "http://localhost:3000/usuarios/login", true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        var response = JSON.parse(xhr.responseText);
+                        alert("Login bem-sucedido! Bem-vindo, " + response.nome);
+                    } else {
+                        alert("Usuário ou senha inválidos.");
+                    }
+                }
+            };
+            var data = JSON.stringify({ "email": email, "senha": senha });
+            xhr.send(data);
+        }
+    </script>
+</body>
+
+</html>

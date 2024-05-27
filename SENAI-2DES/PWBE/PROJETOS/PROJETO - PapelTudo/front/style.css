@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f1f1f1;
+    margin: 0;
+}
+
+.form-container{
+
+    font-size: 18px;
+    text-align: center;
+    color: #000000;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 2px solid #f38f00;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+}
+
+form{
+    display: flex;
+}
+
+.form-container h2{
+    color: #f38f00;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.form-group{
+    font-size: 18px;
+    margin-top: 20px;
+    display: grid;
+    gap: 10px;
+}
+
+.form-group input{
+    height: 40px;
+    display: flex;
+    margin-left: 40px;
+}
+
+.form-group textarea{
+    height: 40px;
+    display: flex;
+    margin-left: 40px;
+}
+
+form button{
+    border-radius: 20px ;
+    height: 40px;
+    width: 150px;
+    margin-top: 45px;
+    margin-left: 20px;
+    background-color: #f38e0086;
+}
+
+.container1 {
+    font-size: 18px;
+    text-align: center;
+    color: #000000;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #fa970da6;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.tabela-inventario {
+    border: 2px solid #f38f00;
+    border-radius: 5px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tabela-inventario h2{
+    text-align: center;
+    font-size: 28px;
+    margin-top: 10px;
+}
+
+.tab{
+    text-align: center;
+    margin-left: 100px;
+}
+
+table th, table td {
+    border: none;
+    padding: 12px;
+    text-align: left;
+    font-size: 18px;
+}
+
+table th {
+    background-color: #f9f9f9;
+    color: #333;
+    font-weight: 600;
+    border-bottom: 1px solid #ddd;
+}
+
+.mensagens-sistema {
+    margin-top: 20px;
+    border: 2px solid #f38f00;
+    padding: 10px;
+    background-color: #f9f9f9;
+    text-align: end;
+    flex-direction: column;
+    width: 100%;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+footer{
+    font-size: 30px;
+    margin-top: 30px;
+    color: #f38f00;
+}
+
+.btn-delete{
+    background-color: #f3ad4b;
+    height: 30px;
+    border-radius: 20px;
+    width: 50px;
+}
+
+.btn-edit{
+    background-color: #f3ad4b;
+    height: 30px;
+    border-radius: 20px;
+    width: 50px;
+}

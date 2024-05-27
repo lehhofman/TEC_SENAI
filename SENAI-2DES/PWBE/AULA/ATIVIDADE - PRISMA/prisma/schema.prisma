@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// tabela Destino
+
+model Destino {
+  id Int @id @default(autoincrement())
+  destino String
+  valor Float
+  data DateTime
+  pontosTuristicos PontosTuristico[]
+  hoteis Hotel[]
+}
+
+// tabela PontosTuristico
+
+model PontosTuristico {
+  id Int @id @default(autoincrement())
+  ponto String
+  endereco String
+  telefone String
+  valor Float
+  destino Destino @relation(fields: [destinoId], references: [id])
+  destinoId Int
+  hoteis Hotel[]
+}
+
+// tabela Hotel
+
+model Hotel {
+  id Int @id @default(autoincrement())
+  hotel String
+  valor Float
+  avaliacao Int
+  email String
+  site String
+  destino Destino @relation(fields: [destinoId], references: [id])
+  destinoId Int
+  pontoTuristico PontosTuristico[]
+}

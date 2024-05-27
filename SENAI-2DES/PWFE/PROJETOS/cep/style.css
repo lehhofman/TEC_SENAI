@@ -1,0 +1,69 @@
+*{
+
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+body {
+
+    height: 100vh;
+    width: 100wh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("https://source.unsplash.com/1920x1080/?maps");
+
+}
+
+form{
+    
+    background-color: yellow;
+    
+    border-radius: 25px;
+    padding: 20px;
+    width: 1050px;
+    max-width: 750px;
+    height: 400px;
+    color: blue;
+
+}
+
+label{
+
+    margin-left: 100px;
+    font-size: 20px;
+    font-weight: bold;
+    color: blue;
+    display: block;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+input{
+    
+    border-radius: 10px;
+    height: 30px;
+    margin-left: 20px;
+}
+
+.cep h2{
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+    color: blue;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+}
+
+.cep{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}

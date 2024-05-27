@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <title>Hortifrut-LH</title>
+    <link rel="icon" href="frutas.jpg" type="image/x-icon">
+
+</head>
+
+<body>
+
+    <header>
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="66" height="16" fill="currentColor" class="bi bi-basket2-fill" viewBox="0 0 16 16">
+            <path d="M5.929 1.757a.5.5 0 1 0-.858-.514L2.217 6H.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h.623l1.844 6.456A.75.75 0 0 0 3.69 15h8.622a.75.75 0 0 0 .722-.544L14.877 8h.623a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1.717L10.93 1.243a.5.5 0 1 0-.858.514L12.617 6H3.383zM4 10a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0zm3 0a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0zm4-1a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1"/>
+        </svg>
+
+        <h1>Cadastro de Compras</h1>
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="66" height="16" fill="currentColor" class="bi bi-basket2-fill" viewBox="0 0 16 16">
+            <path d="M5.929 1.757a.5.5 0 1 0-.858-.514L2.217 6H.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h.623l1.844 6.456A.75.75 0 0 0 3.69 15h8.622a.75.75 0 0 0 .722-.544L14.877 8h.623a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1.717L10.93 1.243a.5.5 0 1 0-.858.514L12.617 6H3.383zM4 10a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0zm3 0a1 1 0 0 1 2 0v2a1 1 0 1 1-2 0zm4-1a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1"/>
+        </svg>
+
+    </header>
+
+    <nav>
+
+        <a href="./index.html"> Registros de Compras</a>
+        <a href="./form.html">Cadastrar Compras</a>
+        
+    </nav>
+
+    <main>
+
+        <form action="http://localhost:3000/produtos" method="post"> 
+
+            <h3>Informe a venda</h3>
+
+            <input type="text" name="cpf" placeholder="Informe seu CPF" required>
+            <input type="text" name="nome" placeholder="Informe seu nome" required>
+
+            
+            <label>Escolha o Produto:</label>
+
+            <select name="produtos" id="produtos" onchange="updatePrice()" required>
+
+                <option value="Abacaxi" data-price="11.80">Abacaxi </option>
+                <option value="Maracuja" data-price="1.50">Maracuja</option>
+                <option value="Cereja" data-price="2.60">Cereja</option>
+                <option value="Melão" data-price="5.50">Melão</option>
+                <option value="Laranja" data-price="0.80">Laranja</option>
+                <option value="Melancia" data-price="15.90">Melancia</option>
+                <option value="Limão" data-price="0.20">Limão</option>
+                <option value="Maça" data-price="1.80">Maça</option>
+                <option value="Banana" data-price="1.10">Banana</option>
+                <option value="Uva" data-price="12.30">Uva</option>
+                
+            </select>
+
+           
+            <input type="float" id="valor" name="valor" class="valor" placeholder="Informe o preço" required>
+            <input type="number" name="quantidade" placeholder="Informe a quantidade" required oninput="calculateTotal()">
+            <input type="float" id="total" name="total" placeholder="Valor Total" required>
+            <input type="datetime-local" name="data" required>
+
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Limpar">
+
+        </form>
+
+        <script>
+
+            function updatePrice() {
+
+                const selectedProduct = document.getElementById("produtos");
+                const priceInput = document.getElementById("valor");
+                const totalInput = document.getElementById("total");
+                const price = parseFloat(selectedProduct.options[selectedProduct.selectedIndex].getAttribute("data-price"));
+
+                priceInput.value = price.toFixed(2);
+                calculateTotal();
+
+            }
+
+            function calculateTotal() {
+
+                const price = parseFloat(document.getElementsByName("valor")[0].value);
+                const quantity = parseInt(document.getElementsByName("quantidade")[0].value);
+                const total = isNaN(price) || isNaN(quantity) ? 0 : price * quantity;
+
+                document.getElementById("total").value = total.toFixed(2);
+
+            }
+
+            function setCurrentDateTime() {
+
+                const now = new Date();
+                const year = now.getFullYear();
+                const month = String(now.getMonth() + 1).padStart(2, '0');
+                const day = String(now.getDate()).padStart(2, '0');
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const localDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
+        
+                document.getElementsByName("data")[0].value = localDateTime;
+                
+            }
+
+            window.onload = setCurrentDateTime;
+
+        </script>
+
+
+    </main>
+
+    <footer>
+
+        <h2>By Leticia</h2>
+
+    </footer>
+
+</body>
+
+</html>
+

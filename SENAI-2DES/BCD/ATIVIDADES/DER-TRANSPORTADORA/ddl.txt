@@ -1,0 +1,215 @@
+MariaDB [transportadora]> create table Clientes( 
+    ->     id_cliente int not null auto_increment,
+    ->     nome varchar(100) not null,
+    ->     endereco varchar(100) not null,
+    ->     telefone varchar(20) not null,
+    ->     email varchar(30),
+    ->     primary key (id_cliente)
+    -> );
+Query OK, 0 rows affected (0.005 sec)
+
+MariaDB [transportadora]>
+MariaDB [transportadora]> INSERT INTO Clientes (nome, endereco, telefone, email) VALUES
+    -> ('Maria', 'Av. do carmo, 32', '1111-1111', 'maria@gmail.com'),
+    -> ('João', 'Centro RJ, 12', '2222-2222', 'joao@gmail.com'),
+    -> ('Lucia', 'R. Parama, 12', '3333-3333', 'lucia@gmail.com');
+Query OK, 3 rows affected (0.002 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+MariaDB [transportadora]>
+MariaDB [transportadora]> SELECT * FROM Clientes;
++------------+-------+------------------+-----------+-----------------+
+| id_cliente | nome  | endereco         | telefone  | email           |
++------------+-------+------------------+-----------+-----------------+
+|          1 | Maria | Av. do carmo, 32 | 1111-1111 | maria@gmail.com |
+|          2 | João  | Centro RJ, 12    | 2222-2222 | joao@gmail.com  |
+|          3 | Lucia | R. Parama, 12    | 3333-3333 | lucia@gmail.com |
++------------+-------+------------------+-----------+-----------------+
+3 rows in set (0.000 sec)
+
+MariaDB [transportadora]>
+MariaDB [transportadora]> create table Veiculo(
+    ->     id_veiculo int not null primary key auto_increment,
+    ->     placa varchar(20) not null,
+    ->     modelo varchar(20) not null,
+    ->     capacidade int
+    -> );
+Query OK, 0 rows affected (0.006 sec)
+
+MariaDB [transportadora]>
+MariaDB [transportadora]> INSERT INTO Veiculo (placa, modelo, capacidade) VALUES
+    -> ('hsn039', 'HB20', 2),
+    -> ('jdn732', 'Ford Ka', 4),
+    -> ('jsn45', 'Gol', 1);
+Query OK, 3 rows affected (0.002 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+MariaDB [transportadora]>
+MariaDB [transportadora]> SELECT * FROM Veiculo;
++------------+--------+---------+------------+
+| id_veiculo | placa  | modelo  | capacidade |
++------------+--------+---------+------------+
+|          1 | hsn039 | HB20    |          2 |
+|          2 | jdn732 | Ford Ka |          4 |
+|          3 | jsn45  | Gol     |          1 |
++------------+--------+---------+------------+
+3 rows in set (0.000 sec)
+
+MariaDB [transportadora]>
+MariaDB [transportadora]> create table Funcionarios(
+    ->     id_funcionario int not null primary key auto_increment,
+    ->     nome varchar(20) not null,
+    ->     cargo varchar(20) not null,
+    ->     salario decimal(10,2)
+    -> );
+Query OK, 0 rows affected (0.005 sec)
+
+MariaDB [transportadora]>
+MariaDB [transportadora]> INSERT INTO Funcionarios (nome, cargo, salario) VALUES
+    -> ('Joaquin', 'analista', 40000.00),
+    -> ('Marilza', 'gerente', 80000.00),
+    -> ('Lucindo', 'desenvolvedor', 5000.00);
+Query OK, 3 rows affected (0.002 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+MariaDB [transportadora]>
+MariaDB [transportadora]> SELECT * FROM Funcionarios;
++----------------+---------+---------------+----------+
+| id_funcionario | nome    | cargo         | salario  |
++----------------+---------+---------------+----------+
+|              1 | Joaquin | analista      | 40000.00 |
+|              2 | Marilza | gerente       | 80000.00 |
+|              3 | Lucindo | desenvolvedor |  5000.00 |
++----------------+---------+---------------+----------+
+3 rows in set (0.000 sec)
+
+MariaDB [transportadora]>
+MariaDB [transportadora]> create table Rotas(
+    ->     id_rota int auto_increment,
+    ->     origem varchar(50) not null,
+    ->     destino varchar(50) not null,
+    ->     distancia_km decimal(10, 2),
+    ->     primary key (id_rota)
+    -> );
+Query OK, 0 rows affected (0.005 sec)
+
+MariaDB [transportadora]>
+MariaDB [transportadora]> INSERT INTO Rotas (origem, destino, distancia_km) VALUES
+    -> ('rua luno', 'rua matas', 230.80),
+    -> ('rua milhas', 'rua ilha', 422.12),
+    -> ('rua ports', 'rua desmas', 4321.30),
+    -> ('rua ruas', 'rua wds', 321.30),
+    -> ('rua oit', 'rua murd', 2121.30);
+Query OK, 5 rows affected (0.002 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+MariaDB [transportadora]>
+MariaDB [transportadora]> SELECT * FROM Rotas;
++---------+------------+------------+--------------+
+| id_rota | origem     | destino    | distancia_km |
++---------+------------+------------+--------------+
+|       1 | rua luno   | rua matas  |       230.80 |
+|       2 | rua milhas | rua ilha   |       422.12 |
+|       3 | rua ports  | rua desmas |      4321.30 |
+|       4 | rua ruas   | rua wds    |       321.30 |
+|       5 | rua oit    | rua murd   |      2121.30 |
++---------+------------+------------+--------------+
+5 rows in set (0.000 sec)
+
+MariaDB [transportadora]>
+MariaDB [transportadora]> create table Entregas(
+    ->     id_entrega int primary key auto_increment,
+    ->     inicio varchar(50),
+    ->     fim varchar(50),
+    ->     status varchar(20),
+    ->     id_veiculo int,
+    ->     motorista varchar(50),
+    ->     id_rota int,
+    ->     FOREIGN KEY (id_rota) REFERENCES Rotas(id_rota),
+    ->     FOREIGN KEY (id_veiculo) REFERENCES Veiculo(id_veiculo)
+    -> );
+Query OK, 0 rows affected (0.023 sec)
+
+MariaDB [transportadora]>
+MariaDB [transportadora]> INSERT INTO Entregas (inicio, fim, status, id_veiculo, motorista, id_rota) VALUES
+    -> ('rua 1', 'rua 2', 'entregue', 1, 'mot1', 1),
+    -> ('rua 2', 'rua 3', 'pendente', 2, 'mot2', 2),
+    -> ('rua 4', 'rua 5', 'em rota', 3, 'mot3', 3),
+    -> ('rua 5', 'rua 2', 'pendente', 3, 'mot1', 4),
+    -> ('rua 6', 'rua 1', 'em rota', 3, 'mot3', 5),
+    -> ('rua 7', 'rua 6', 'entregue', 3, 'mot6', 2),
+    -> ('rua 8', 'rua 7', 'em rota', 3, 'mot9', 3),
+    -> ('rua 9', 'rua 9', 'em rota', 3, 'mot2', 1),
+    -> ('rua 10', 'rua 8', 'pendente', 3, 'mot3', 4),
+    -> ('rua 11', 'rua 10', 'em rota', 3, 'mot4', 5),
+    -> ('rua 12', 'rua 11', 'entregue', 3, 'mot5', 2),
+    -> ('rua 13', 'rua 12', 'em rota', 3, 'mot6', 3),
+    -> ('rua 14', 'rua 13', 'pendente', 3, 'mot7', 1),
+    -> ('rua 15', 'rua 14', 'em rota', 3, 'mot8', 4),
+    -> ('rua 16', 'rua 15', 'entregue', 3, 'mot9', 5),
+    -> ('rua 17', 'rua 16', 'pendente', 3, 'mot1', 2),
+    -> ('rua 18', 'rua 17', 'em rota', 3, 'mot2', 3),
+    -> ('rua 19', 'rua 18', 'entregue', 3, 'mot3', 1),
+    -> ('rua 20', 'rua 19', 'pendente', 3, 'mot4', 4);
+Query OK, 19 rows affected (0.012 sec)
+Records: 19  Duplicates: 0  Warnings: 0
+
+MariaDB [transportadora]>
+MariaDB [transportadora]> SELECT * FROM Entregas;
++------------+--------+--------+----------+------------+-----------+---------+
+| id_entrega | inicio | fim    | status   | id_veiculo | motorista | id_rota |
++------------+--------+--------+----------+------------+-----------+---------+
+|          1 | rua 1  | rua 2  | entregue |          1 | mot1      |       1 |
+|          2 | rua 2  | rua 3  | pendente |          2 | mot2      |       2 |
+|          3 | rua 4  | rua 5  | em rota  |          3 | mot3      |       3 |
+|          4 | rua 5  | rua 2  | pendente |          3 | mot1      |       4 |
+|          5 | rua 6  | rua 1  | em rota  |          3 | mot3      |       5 |
+|          6 | rua 7  | rua 6  | entregue |          3 | mot6      |       2 |
+|          7 | rua 8  | rua 7  | em rota  |          3 | mot9      |       3 |
+|          8 | rua 9  | rua 9  | em rota  |          3 | mot2      |       1 |
+|          9 | rua 10 | rua 8  | pendente |          3 | mot3      |       4 |
+|         10 | rua 11 | rua 10 | em rota  |          3 | mot4      |       5 |
+|         11 | rua 12 | rua 11 | entregue |          3 | mot5      |       2 |
+|         12 | rua 13 | rua 12 | em rota  |          3 | mot6      |       3 |
+|         13 | rua 14 | rua 13 | pendente |          3 | mot7      |       1 |
+|         14 | rua 15 | rua 14 | em rota  |          3 | mot8      |       4 |
+|         15 | rua 16 | rua 15 | entregue |          3 | mot9      |       5 |
+|         16 | rua 17 | rua 16 | pendente |          3 | mot1      |       2 |
+|         17 | rua 18 | rua 17 | em rota  |          3 | mot2      |       3 |
+|         18 | rua 19 | rua 18 | entregue |          3 | mot3      |       1 |
+|         19 | rua 20 | rua 19 | pendente |          3 | mot4      |       4 |
++------------+--------+--------+----------+------------+-----------+---------+
+19 rows in set (0.000 sec)
+
+MariaDB [transportadora]>
+MariaDB [transportadora]> create table Pedidos(
+    ->     id_pedido int primary key auto_increment,
+    ->     id_cliente int,
+    ->     id_veiculo int,
+    ->     id_funcionario int,
+    ->     id_entrega int,
+    ->     FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente),
+    ->     FOREIGN KEY (id_veiculo) REFERENCES Veiculo(id_veiculo),
+    ->     FOREIGN KEY (id_funcionario) REFERENCES Funcionarios(id_funcionario),
+    ->     FOREIGN KEY (id_entrega) REFERENCES Entregas(id_entrega)
+    -> );
+Query OK, 0 rows affected (0.018 sec)
+
+MariaDB [transportadora]>
+MariaDB [transportadora]> INSERT INTO Pedidos (id_cliente, id_veiculo, id_funcionario, id_entrega) VALUES
+    -> (1, 1, 1, 1),
+    -> (2, 2, 2, 2),
+    -> (3, 3, 3, 3);
+Query OK, 3 rows affected (0.001 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+MariaDB [transportadora]>
+MariaDB [transportadora]> SELECT * FROM Pedidos;
++-----------+------------+------------+----------------+------------+
+| id_pedido | id_cliente | id_veiculo | id_funcionario | id_entrega |
++-----------+------------+------------+----------------+------------+
+|         1 |          1 |          1 |              1 |          1 |
+|         2 |          2 |          2 |              2 |          2 |
+|         3 |          3 |          3 |              3 |          3 |
++-----------+------------+------------+----------------+------------+
+3 rows in set (0.000 sec)

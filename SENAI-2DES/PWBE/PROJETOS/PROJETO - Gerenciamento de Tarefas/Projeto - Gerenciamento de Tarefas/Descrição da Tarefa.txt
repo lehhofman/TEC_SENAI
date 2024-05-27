@@ -1,0 +1,51 @@
+		
+												GERENCIAMENTO DE TAREFAS
+											       --------------------------
+
+
+	    CAMPOS USUÁRIO :
+
+			- ID (chave primária)
+			- Nome
+			- E-mail
+			- Senha (criptografada)
+
+			- { 5 Usuários }
+
+
+	     CAMPOS TAREFAS:
+
+			- ID (chave primária)
+			- Descrição
+			- Data de Vencimento
+			- Status
+			- ID do Usuário (chave estrangeira referenciando a tabela de Usuários para identificar a quem a tarefa está atribuída)
+
+			- { 10 Tarefas cada Usuário}
+
+
+	      DESAFIO:
+
+			- Desenvolva as seguintes funcionalidades;
+
+			- Autenticação de Usuários: Permitir que os usuários se registrem, façam login e saiam do sistema;
+
+			- CRUD de Tarefas: Implementar operações CRUD (Create, Read, Update, Delete) para as tarefas, permitindo que os usuários criem, visualizem, atualizem e excluam suas próprias tarefas;
+	
+			- Atribuição de Tarefas: Permitir que os usuários atribuam tarefas a si mesmos ou a outros usuários do sistema;
+
+			- Filtragem e Ordenação: Implementar funcionalidades para filtrar e ordenar tarefas com base em diferentes critérios, como data de vencimento ou status.
+
+	     ENTREGA:
+
+			- Repositório do Github contendo:
+
+			- DER Conceitual e Lógico em uma pasta "docs"
+
+			- Script de criação do banco script.sql em uma pasta "bd"
+
+			- Script de população do BD com dados de teste chamado testes.sql em uma pasta "testes"
+
+			- API back-end com os CRUDs no padrão MVC em uma pasta "api"
+
+			- Arquivo insomnha.json com todas as rotas de teste na pasta "testes"

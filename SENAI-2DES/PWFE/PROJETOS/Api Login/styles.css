@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(103, 184, 187);
+}
+
+.container{
+    width: 100px;
+    margin: 0 auto;
+    max-width: 400px;
+    text-align: center;
+    padding-top: 100px ;
+}
+
+button{
+    background-color: #335087;
+    color: aliceblue;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 150px;
+    font-size: 20px;
+}
+
+button:hover{
+    background-color: aliceblue;
+    color: #335087;
+}
+
+h1{
+    color: aliceblue;
+}

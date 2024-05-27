@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #343a40;
+    padding-top: 0px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #343a40;
+    padding: 15px 0;
+    color: #fff;
+}
+
+.navbar-brand h3{
+    color: #007bff;
+    font-weight: bold;
+    margin-top: 3px;
+    font-size: 25px;
+}
+
+.navbar-brand {
+    color: #007bff;
+    font-size: 25px;
+    font-weight: bold;
+    align-items: center;
+    text-decoration: none;
+}
+
+.navbar-nav .nav-links {
+    color: #ffffff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    font-size: 20px;
+    margin-left: 155px;
+    margin-right: 65px;
+    margin-top: 35px;
+    margin-bottom: 45px;
+    text-decoration: none;
+}
+
+.navbar-nav .nav-links:hover {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.d-flex {
+    width: 400px;
+}
+
+.d-flex input {
+    border-radius: 20px;
+}
+
+.d-flex button {
+    margin-left: 10px;
+    border-radius: 20px;
+}
+
+.card {
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    margin-top: 100px;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+.card-img-top {
+    height: 300px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-img-top3 {
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-text {
+    color: #343a40;
+}
+
+h2,
+h3,
+h4,
+h6 {
+    color: #343a40;
+}
+
+h5,
+h1 {
+    text-align: center;
+}
+
+p {
+    color: #666666;
+    text-align: center;
+}
+
+.card-body a {
+    margin-left: 150px;
+}
+
+.row {
+    margin-top: 200px;
+}
+
+.modal-container {
+    position: relative;
+    display: inline-block;
+}
+
+.custom-modal {
+    display: none;
+    position: absolute;
+    top: calc(100% + 20px);
+    left: 0;
+    width: 160%;
+    z-index: 1000;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.custom-modal h5 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.custom-modal p {
+    text-align: center;
+}
+
+.btn-details {
+    display: block;
+    margin-top: 10px;
+}

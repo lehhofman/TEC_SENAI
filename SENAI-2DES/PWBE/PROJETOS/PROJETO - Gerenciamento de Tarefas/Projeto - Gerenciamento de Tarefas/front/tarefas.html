@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Listar Tarefas</title>
+</head>
+
+<body>
+    <header>
+        <h1>Listar todas as tarefas</h1>
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Descrição</th>
+                    <th>Data de Vencimento</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="dados">
+            </tbody>
+        </table>
+    </main>
+</body>
+<script>
+    const dados = document.getElementById('dados');
+    fetch('http://localhost:3000/tarefas/:id')
+        .then(res => res.json())
+        .then(res => {
+            res.forEach(tarefa => {
+                dados.innerHTML += `
+                    <tr>
+                        <td>${tarefa.ID}</td>
+                        <td>${tarefa.Descricao}</td>
+                        <td>${tarefa.Data_de_Vencimento}</td>
+                        <td>${tarefa.Status}</td>
+                        <td>
+                            <button onclick='del(${tarefa.ID})'>[ - ]</button>
+                            <button onclick='window.location.href="./uptade.html?id=${tarefa.ID}&descricao=${tarefa.Descricao}&data=${tarefa.Data_de_Vencimento}&status=${tarefa.Status}"'>
+                                [ * ]
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+        });
+
+    function del(id) {
+        fetch(`http://localhost:3000/tarefas/${id}`, { method: 'DELETE' })
+            .then(res => res.json())
+            .then(res => {
+                window.location.reload();
+            });
+    }
+</script>
+
+</html>

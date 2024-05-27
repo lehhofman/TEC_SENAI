@@ -1,0 +1,34 @@
+	
+		MER = Modelo Entidade Relacionamento
+
+- pode ser em portugues
+- modelo de como seria
+- juntar ideias e modelar
+
+
+-> Entidade = Atributo chave primária: tipo,
+          
+---------------------------------------------------
+
+		->Projeto - Planejamento
+
+---------------------------------------------------
+
+		sgbd - sql: Tabela
+
+-> Estruturas = ddl
+-> dados = dml 
+
+-> Consultas de dados = dql 
+-> Visões = Relatórios
+
+-> Procedimentos = Escolhe o que vai rodar automático
+-> Funções = criadas no banco 
+-> Gatilhos = Roda Automáticas
+
+-> Acessos = dcl
+
+---------------------------------------------------
+
+Atividade = banco - transportadora - varegista - academia -
+escola  em mer

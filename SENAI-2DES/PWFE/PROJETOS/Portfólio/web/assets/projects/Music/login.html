@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container1">
+        <div class="row">
+            <div class="col-12">
+                <h1>Music Login</h1>
+                <button onclick="loginWithGitHun()">Fazer Login</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    function loginWithGitHun() {
+  window.location.href = 'http://github.com/login/oauth/authorize?client_id=6a40e96f8a028c6aa44f&scope=user';
+}
+const urlParams = new URLSearchParams(window.location.search);
+const error = urlParams.get('error');
+if (error === 'access_denied') {
+  window.location.href = 'index.html';
+}
+</script>
+</html>

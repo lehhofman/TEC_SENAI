@@ -1,0 +1,14 @@
+rede:
+
+privada 10./ 172. = corporativa
+privada 192. = doméstica
+
+publica internet = protocolo tcp / ip - ip / tcp - icmp - ssh - http - https - imap
+
+ip = endereço numérico 
+dns = endereço escrito
+ssh = protocolo de hospedagem / portaas 22 - 21
+icmp = transporte ping / protocolo de teste
+http = protocolo de req e rest = get post put delete  / porta 80 - 443
+https = protocolo de req e rest = get post put delete  -> com mais segurança
+imap = email - correio eletronico

@@ -1,0 +1,184 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap');
+
+* {
+  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Orbitron', sans-serif;
+  transition: all 0.4s ease;
+
+}
+
+h1 {
+
+  text-align: center;
+  padding: 15px;
+
+}
+
+section {
+
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F0F8FF;
+  padding: 0 20px;
+
+}
+
+section.dark {
+
+  background: #24292D;
+
+}
+
+section .container {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 220px;
+  max-width: 560px;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  position: relative;
+
+}
+
+section.dark .container {
+
+  background: #323840;
+
+}
+
+section .container .icone i {
+
+  position: absolute;
+  right: 17px;
+  top: 17px;
+  height: 30px;
+  width: 30px;
+  background: #24292D;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 50%;
+  font-size: 14px;
+  cursor: pointer;
+
+}
+
+section.dark .container .icone i {
+
+  background: #fff;
+  color: #323840;
+
+}
+
+.container .icone i.fa-sun {
+
+  opacity: 0;
+  pointer-events: none;
+
+}
+
+section.dark .container .icone i.fa-sun {
+
+  opacity: 1;
+  pointer-events: auto;
+  font-size: 16px;
+
+}
+
+section .container .horario {
+
+  display: flex;
+  align-items: center;
+
+}
+
+.container .horario .pontos {
+
+
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-left: 20px;
+
+}
+
+.horario .pontos .am_pm {
+
+  position: absolute;
+  margin-left: 130px;
+  font-size: 20px;
+
+}
+
+section.dark .horario .pontos .am_pm {
+
+  color: #fff;
+
+}
+
+.horario .pontos .time-text {
+
+  height: 100px;
+  width: 100px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background: #F0F8FF;
+  border-radius: 6px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+section.dark .horario .pontos .time-text {
+
+  background: #24292D;
+
+}
+
+.horario .pontos .time-text,
+.horario .pontos .colon {
+
+  font-size: 35px;
+  font-weight: 600;
+
+}
+
+section.dark .horario .pontos .num,
+section.dark .horario .pontos .colon {
+
+  color: #fff;
+
+}
+
+.horario .pontos .colon {
+
+  font-size: 40px;
+  margin: 0 10px;
+
+}
+
+.horario .pontos .time-text .texto {
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+
+}
+
+section.dark .horario .pontos .texto {
+
+  color: #fff;
+
+}

@@ -1,0 +1,18 @@
+npm install -g expo-cli  = Baixar depedencia expo
+
+https://docs.expo.dev/ = site para pegar código para documentação expo
+
+-> npx create-expo-app alomundo  
+
+app = expo-cli para testar 
+
+-> comando para instalação, fazer e testar
+
+npx expo install react-native-web react-dom @expo/metro-runtime
+cd alomundo
+npm run web 
+
+- vai abrir uma tela, em app.js oce muda o texto que desejar, tem tambem como mudar a imagem em assets
+favicon.png
+
+-> app.js é onde vai estar o código

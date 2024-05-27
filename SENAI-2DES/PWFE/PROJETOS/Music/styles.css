@@ -1,0 +1,30 @@
+body{
+    background-color: antiquewhite;
+}
+
+.container1{
+    text-align: center;
+    padding: 320px;
+}
+
+h1{
+    font-size: 50px;
+    text-align: center;
+    color: #ff4f5a;
+}
+
+button{
+    background-color: #f86e77fd;
+    color: aliceblue;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 150px;
+    font-size: 20px;
+}
+
+button:hover{
+    background-color: #f8949bcc;
+    color: #f86e77fd;
+}

@@ -1,0 +1,26 @@
+1 Crie uma consulta que mostre somente os nomes de todos os clientes:
+
+SELECT nome FROM cliente;
+---------------------------------------------------------------
+
+2 Crie uma consulta que agrupe as estregas e mostre quantas cada motorista fez:
+
+SELECT f.nome AS nomeMotorista, COUNT(*) AS totalEntregas FROM entrega e JOIN funcionario f ON e.motorista = f.idFuncionario GROUP BY e.motorista, f.nome;
+---------------------------------------------------------------
+
+3 Salve a consulta anterior em um relatório chamado 'entregas por motorista':
+
+create view entregas_por_motorista as
+SELECT f.nome AS nomeMotorista, COUNT(*) AS totalEntregas FROM entrega e JOIN funcionario f ON e.motorista = f.idFuncionario GROUP BY e.motorista, f.nome;
+---------------------------------------------------------------
+
+4 Crie uma consulta que mostre todas as rotas ordenadas por distância:
+
+SELECT idrota, distancia FROM rota ORDER BY distancia;
+---------------------------------------------------------------
+
+5 Crie uma consulta que mostre os funcionários ordenados por nome:
+
+SELECT idFuncionario, nome FROM funcionario ORDER BY nome;
+---------------------------------------------------------------
+

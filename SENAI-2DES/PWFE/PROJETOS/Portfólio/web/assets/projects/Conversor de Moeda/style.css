@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+
+  box-sizing: border-box;
+  
+}
+
+body {
+
+  background-image: linear-gradient(to bottom, #6e3dc852 0%, #fff 50%, #ecf0f1 50%, #6781f780 100%);
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+
+}
+
+h1 {
+
+  padding: 25px;
+  font-size: 50px;
+  color: #001F61;
+
+}
+
+.container {
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.moeda select {
+
+  background: transparent;
+  padding-right: 20px;
+  font-size: 22px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+
+}
+
+.moeda input {
+
+  border: 0;
+  background: transparent;
+  font-size: 22px;
+  text-align: right;
+
+}
+
+.taxa{
+
+	margin-top: 200px;
+	color: #001F61;
+	font-style: italic;
+
+}
