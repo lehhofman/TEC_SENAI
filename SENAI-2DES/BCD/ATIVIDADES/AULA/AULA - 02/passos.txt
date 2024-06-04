@@ -1,0 +1,21 @@
+PASSO A PASSO DA AULA:
+
+    - abra no xampp o phpmyadmin
+    - vai em conta de usuário
+    - criar nova conta 
+    - abra o shell do xampp
+    - coloque  o comando = mysql -u devpizza -p
+    - coloque a senha 
+    - coloque os comandos abaixo:
+
+        -> show databases;
+        -> use pizzaria;
+        -> show tables;
+        -> describe clientes;
+        -> select * from clientes;
+
+    - crie um novo usuario com o comando abaixo:
+
+        -> CREATE USER 'pizzaiolo'@'localhost' IDENTIFIED BY '1234';
+
+    - 
