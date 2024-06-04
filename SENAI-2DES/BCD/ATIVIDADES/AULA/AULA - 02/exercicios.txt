@@ -58,4 +58,29 @@
             ) as valor_total
             from Pedidos p;
 
+ATUALIZA R$:
 
+
+DELIMITER //
+
+CREATE PROCEDURE atualiza_valor()
+BEGIN
+    UPDATE Pedidos p
+    SET p.valor = (
+        SELECT CONCAT('R$ ', FORMAT(SUM(ip.valor), 2, 'de_DE'))
+        FROM Itens_Pedido ip
+        WHERE ip.pedido_id = p.pedido_id
+    );
+END //
+
+DELIMITER ;
+
+CREATE VIEW Atualiza_$ AS
+SELECT
+    p.pedido_id,
+    p.cliente_id,
+    p.data,
+    p.hora,
+    CONCAT('R$ ', FORMAT(p.valor, 2, 'de_DE')) AS valor_formatado
+FROM
+    Pedidos p;
