@@ -1,0 +1,61 @@
+    DESAFIO 1 = 
+
+        - Crie uma função que formate os números em formato de dinheiro brasileiro R$ 0.00
+        - E crie uma visão que mostre os pedidos formatando o valor com esta função
+
+    COMANDO SIMPLIFICADO:
+
+        ->  delimiter //
+            create function FORMATAR_MONEY(valor decimal(8,2))
+            returns varchar(20)
+            begin
+            return CONCAT('R$ ', FORMAT(valor, 2, 'de_DE'));
+            end //
+            delimiter ;
+
+    CRIAR VISÃO:
+
+        ->  create view Pedidos_money as
+            select 
+            p.pedido_id,
+            p.cliente_id,
+            p.data,
+            p.hora,
+            FORMATAR_MONEY(p.valor) as valor_formatado
+            from Pedidos p;
+
+    DESAFIO 2 = 
+
+        - Crie um procedimento que atulize os valores dos pedidos somando os valores dos itens_pedido
+        - Chame o procedimento de atualiza_valores
+
+    COMANDO:
+
+        -   delimiter //
+            create procedure atualiza_valores()
+            begin
+            update Pedidos p
+            set p.valor = (
+            select sum(ip.valor)
+            from Itens_Pedido ip
+            where ip.pedido_id = p.pedido_id
+            );
+            end //
+        delimiter ;
+
+    CRIAR VISÃO:
+
+        -   create view atualiza_valores as
+            select 
+            p.pedido_id,
+            p.cliente_id,
+            p.data,
+            p.hora,
+            (
+            select sum(ip.valor)
+            from Itens_Pedido ip
+            where ip.pedido_id = p.pedido_id
+            ) as valor_total
+            from Pedidos p;
+
+

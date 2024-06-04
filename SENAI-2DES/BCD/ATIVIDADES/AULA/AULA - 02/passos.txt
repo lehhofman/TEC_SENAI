@@ -4,8 +4,13 @@ PASSO A PASSO DA AULA:
     - vai em conta de usuário
     - criar nova conta 
     - abra o shell do xampp
-    - coloque  o comando = mysql -u devpizza -p
-    - coloque a senha 
+
+    - coloque  o comando abaixo:
+
+        -> mysql -u devpizza -p
+
+    - coloque a senha = 1234
+
     - coloque os comandos abaixo:
 
         -> show databases;
@@ -18,4 +23,195 @@ PASSO A PASSO DA AULA:
 
         -> CREATE USER 'pizzaiolo'@'localhost' IDENTIFIED BY '1234';
 
-    - 
+    - ver se ele tem permissão:
+
+        -> exit
+        -> mysql -u pizzaiolo -p
+        -> show databases;
+        -> use pizzaria; =  esse comando vai ser negado
+        -> exit
+        -> mysql -u devpizza -p
+        -> show databases;
+
+    - dar permissão ao pizzaiolo para poder mexer na pizzaria:
+
+        -> GRANT ALL PRIVILEGES ON pizzaria.* TO pizzaiolo@localhost;
+
+    - ver se realmente foi permitido:
+
+        -> exit;
+        -> mysql -u pizzaiolo -p;
+        -> show databases;
+
+    - agora o pizzaiolo pode criar novos pedidos na pizzaria
+    
+    - criar novo pedido:
+
+        -> INSERT INTO pedidos VALUES (null, 1, curdate(), curtime(), null);
+        -> select * from pedidos;
+    
+    - tirar o acesso do pizzaiolo de inserir, deixar apenas para ele ver
+
+    - comandos abaixo para tirar acesso:
+
+        -> exit
+        -> mysql -u devpizza -p
+        -> REVOKE INSERT, UPDATE ON pizzaria.* FROM pizzaiolo@localhost;
+
+    - ver se ele ainda ira ter acesso:
+
+        -> mysql -u pizzaiolo -p
+        -> use pizzaria;
+        -> show databases;
+        -> INSERT INTO pedidos VALUES (null, 3, curdate(), curtime(), null);
+    
+    - agora o pizzaiolo não pode inserir nada apenas ver
+
+    - comando para o pizzaiolo ver os pedidos:
+
+        -> select * from pedidos;
+
+    - voltar para devpizza:
+
+        -> exit
+        -> mysql -u devpizza -p
+        -> use pizzaria;
+
+
+OBS = o devpizza é como um gerente e o pizzaiolo é o funcionário que precisa de permissão.
+
+OBS = lote e streaming = streaming é algo pequeno, e lote são coisas grandes.
+
+    OBS = o SQL tem subdivisões que são essas:
+
+        -> DDL = ESTRUTURA
+        -> DML = MANIPULAÇÃO
+        -> DQL = CONSULTA / RELATÓRIO
+        -> DCL = ACESSO
+
+    OBS = Escopo de acesso abaixo:
+
+        -> ambiente DEV = Espaço que permite o desenvolvedor criar e alterar uma aplicação.
+
+        -> ambiente Quality = Responsável por garantir a qualidade, com processos que envolvem planejamento, 
+        execução e monitoramento de testes.
+
+        -> ambiente Prod = ambiente operacional no qual um aplicação de software ou sistema é implantado e 
+        usado por usuários finais para executar suas tarefas pretendidas.
+        
+        - SGBD (MySQL, Postgress, SQL Server, Oracle)
+
+        - BD (Pizzaria, Transportadora, Escola, Banco)
+
+    Política de acesso mínimo:
+        
+        -> Nos ambientes de Produção e testes, sempre trabahamos com a política de acesso mínimo*, um 
+        usuário deve ter o acesso somente ao reecurso necessário para o seu trabalho.
+
+DESAFIO:
+
+    CRIAR FUNÇÃO QUE FORMATE O DINEIRO EM R$ 0.00:
+
+        ->  delimiter //
+            create function FORMATAR_DINHEIRO(valor decimal(8,2))
+            eturns varchar(20)
+            begin
+            declare resultado varchar(20);
+            set resultado = concat('R$ ', format(valor, 2, 'de_DE'));
+            return resultado;
+            end //
+            delimiter ;
+    
+    CRIAR VISÃO:
+
+        ->  create view Pedidos_money as
+            select 
+            p.pedido_id,
+            p.cliente_id,
+            p.data,
+            p.hora,
+            FORMATAR_MONEY(p.valor) as valor_formatado
+            from Pedidos p;
+
+    EXPLICAÇÃO:
+
+        -> delimiter //: Este comando define um novo delimitador para o MySQL.
+
+        -> create function FORMATAR_DINHEIRO(valor decimal(8,2)):  significa que valor é um número 
+        decimal com até 8 dígitos no total, dos quais 2 são reservados para os dígitos decimal.
+
+        -> returns varchar(20): Indica que a função retornará uma string com no máximo 20 caracteres.
+
+        -> begin: Marca o início do bloco de código da função.
+
+        -> declare resultado varchar(20);:  armazena o resultado da formatação do número.
+
+        -> set resultado = concat('R$ ', format(valor, 2, 'de_DE'));:Esta linha de código formata o número valor.
+
+        -> return resultado;: Retorna o valor formatado como resultado da função.
+
+        -> end //: Marca o fim do bloco de código da função.
+
+        -> delimiter ;: Restaura o delimitador padrão para o MySQL, que é o ponto e vírgula (;).
+
+    DESAFIO = 
+
+        - Crie uma função que formate os números em formato de dinheiro brasileiro R$ 0.00
+        - E crie uma visão que mostre os pedidos formatando o valor com esta função
+
+    COMANDO SIMPLIFICADO:
+
+        ->  delimiter //
+            create function FORMATAR_MONEY(valor decimal(8,2))
+            returns varchar(20)
+            begin
+            return CONCAT('R$ ', FORMAT(valor, 2, 'de_DE'));
+            end //
+            delimiter ;
+
+    CRIAR VISÃO:
+
+        ->  create view Pedidos_money as
+            select 
+            p.pedido_id,
+            p.cliente_id,
+            p.data,
+            p.hora,
+            FORMATAR_MONEY(p.valor) as valor_formatado
+            from Pedidos p;
+
+    DESAFIO = 
+
+        - Crie um procedimento que atulize os valores dos pedidos somando os valores dos itens_pedido
+        - Chame o procedimento de atualiza_valores
+
+    COMANDO:
+
+        -   delimiter //
+            create procedure atualiza_valores()
+            begin
+            update Pedidos p
+            set p.valor = (
+            select sum(ip.valor)
+            from Itens_Pedido ip
+            where ip.pedido_id = p.pedido_id
+            );
+            end //
+        delimiter ;
+
+    CRIAR VISÃO:
+
+        -   create view atualiza_valores as
+            select 
+            p.pedido_id,
+            p.cliente_id,
+            p.data,
+            p.hora,
+            (
+            select sum(ip.valor)
+            from Itens_Pedido ip
+            where ip.pedido_id = p.pedido_id
+            ) as valor_total
+            from Pedidos p;
+
+
