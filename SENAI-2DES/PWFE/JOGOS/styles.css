@@ -1,0 +1,130 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 120px;
+    margin-left: 130px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    
+}
+
+nav ul li a.active {
+    font-weight: bold;
+}
+
+.hero {
+    background-image: url('https://images.unsplash.com/photo-1616801060191-6085bad82f95?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=MnwxfDB8MXxyYW5kb218MHx8Z2FtZXN8fHx8fHwxNzE3Njc4Mjcw&ixlib=rb-4.0.3&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1920');
+    background-size: cover;
+    background-position: center;
+    height:100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-content {
+    color: #fff;
+}
+
+.hero-content h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #ffffff; /* Verde */
+    text-shadow: 0 0 5px #238d35, 0 0 10px #238d35, 0 0 15px #238d35, 0 0 20px #238d35, 0 0 30px #238d35, 0 0 40px #238d35, 0 0 50px #238d35, 0 0 75px #238d35; 
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #ffffff; /* Verde */
+    text-shadow: 0 0 5px #238d35, 0 0 10px #238d35, 0 0 15px #238d35, 0 0 20px #238d35, 0 0 30px #238d35, 0 0 40px #238d35, 0 0 50px #238d35, 0 0 75px #238d35; 
+}
+
+.btn {
+    background-color: #ff5e3a;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #d14827;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.sobre-section {
+    background-color: #000000;
+    padding: 100px 0;
+    text-align: center;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.container .btn{
+    background-color: #ff5e3a;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 140px;
+}
+
+.container img {
+    width: 40%;
+}
+
+.container h1 {
+    color: #ffffff;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.container p {
+    color: #f8f8f8;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-top: 30px;
+}
