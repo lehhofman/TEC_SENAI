@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 * {
@@ -13,22 +14,19 @@ body {
     justify-content: center;
     flex-direction: column;
     gap: 5px;
-    background-image: url('img.avif');
-    background-size: cover;
-    background-repeat: no-repeat;
-}
+    background:linear-gradient(90deg, rgb(90, 2, 127) 0%, rgba(77,39,182,1)100%); 
 
+}
 body h2 {
     color:white;
 }
 
 main {
-    background-color: rgb(223, 100, 29);
+    background-color: white;
     padding: 10px;
     border-radius: 10px;
-    width: 200%;
-    height: 300px;
-    max-width: 500px;
+    width: 100%;
+    max-width: 300px;
     min-width: 200px;
     display: flex;
     align-items: center;
@@ -43,11 +41,6 @@ main {
     width: 100%;
 }
 
-.question{
-    color: aliceblue;
-    text-align: center;
-}
-
 .spnQtd {
     text-align: end;
 }
@@ -55,7 +48,7 @@ main {
 .answers {
     display: flex;
     flex-direction: column;
-    gap: 15px;=
+    gap: 5px;
 }
 
 button {
@@ -65,7 +58,7 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    background-color: #cc0055;
+    background-color: #000CCC;
     color: whitesmoke;
 }
 

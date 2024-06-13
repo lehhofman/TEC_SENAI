@@ -1,99 +1,181 @@
 export default [
     {
-        question: "Qual é o principal ingrediente do prato feijoada?",
+        question: "Quanto é 1 + 2?",
         answers: [
-            {option: "Feijão", correct:false},
-            {option: "Carne de porco", correct:false},
-            {option: "Feijão preto", correct:true},
+            {option: "3", correct:true},
+            {option: "4", correct:false},
+            {option: "5", correct:false},
         ],
     },
 
     {
-        question: "Qual é o nome do prato típico da região nordeste do Brasil feito à base de carne de sol, farinha de mandioca e temperos?",
+        question: "Quanto é 5 x 2?",
         answers: [
-            {option: "Buchada de bode", correct:false},
-            {option: "Carne de sol com mandioca", correct:false},
-            {option: "Baião de dois", correct:true},
+            {option: "9", correct:false},
+            {option: "10", correct:true},
+            {option: "11", correct:false},
         ],
     },
     
     {
-        question: "Qual é a fruta principal do doce conhecido como 'cajuzinho'?",
+        question: "Quanto é 10 x 8?",
         answers: [
-            {option: "Morango", correct:false},
-            {option: "Coco", correct:false},
-            {option: "Caju", correct:true},
+            {option: "800", correct:false},
+            {option: "60", correct:false},
+            {option: "80", correct:true},
         ],
-        
     },
 
     {
-        question: "O que é o acarajé?",
+        question: "Quanto é 7 x 7?",
         answers: [
-            {option: "Um tipo de peixe frito", correct:false},
-            {option: "Um tipo de torta de frango", correct:false},
-            {option: "Um bolinho de feijão fradinho frito em azeite de dendê, típico da culinária baiana", correct:true},
+            {option: "49", correct:true},
+            {option: "50", correct:false},
+            {option: "51", correct:false},
         ],
-        
     },
 
     {
-        question: "Qual é o nome do prato típico da culinária paraense feito com peixe, camarão, leite de coco, azeite de dendê, pimenta e outros temperos?",
+        question: "Quanto é 9 + 6?",
         answers: [
-            {option: "Moqueca", correct:true},
-            {option: "Vatapá", correct:false},
-            {option: "Tacacá", correct:false},
+            {option: "15", correct:true},
+            {option: "14", correct:false},
+            {option: "16", correct:false},
         ],
-        
     },
 
     {
-        question: "Qual é o nome do prato típico gaúcho que consiste em uma churrasqueira de metal com uma grelha móvel, na qual são assados diversos tipos de carne?",
+        question: "Quanto é 12 - 4?",
         answers: [
-            {option: "Parrilla", correct:false},
-            {option: "Churrasco", correct:false},
-            {option: "Churrasqueira", correct:true},
+            {option: "8", correct:true},
+            {option: "7", correct:false},
+            {option: "9", correct:false},
         ],
-        
     },
 
     {
-        question: "Qual é o ingrediente principal do prato 'moqueca capixaba'?",
+        question: "Quanto é 15 ÷ 3?",
         answers: [
-            {option: "Peixe", correct:true},
-            {option: "Carne de porco", correct:false},
-            {option: "Frango", correct:false},
+            {option: "5", correct:true},
+            {option: "4", correct:false},
+            {option: "6", correct:false},
         ],
-        
     },
 
     {
-        question: "Qual é o nome do prato típico da culinária mineira feito com feijão tropeiro, bacon, linguiça, ovos, cebola, alho e temperos?",
+        question: "Quanto é 8 x 3?",
         answers: [
-            {option: "Tutu de feijão", correct:false},
-            {option: "Feijoada", correct:false},
-            {option: "Feijão tropeiro", correct:true},
+            {option: "24", correct:true},
+            {option: "23", correct:false},
+            {option: "25", correct:false},
         ],
-        
     },
 
     {
-        question: "Qual é o principal ingrediente do doce típico de festas juninas chamado 'pé de moleque'?",
+        question: "Quanto é 20 - 9?",
         answers: [
-            {option: "Milho", correct:false},
-            {option: "Amendoim", correct:true},
-            {option: "Coco", correct:false},
+            {option: "11", correct:true},
+            {option: "10", correct:false},
+            {option: "12", correct:false},
         ],
-        
     },
 
     {
-        question: "Qual é o nome do prato típico do estado da Bahia que consiste em uma sopa de origem africana feita com camarão seco, peixe, azeite de dendê, leite de coco, pimentão, cebola, tomate e temperos?",
+        question: "Quanto é 14 + 5?",
         answers: [
-            {option: "Acarajé", correct:false},
-            {option: "Moqueca", correct:false},
-            {option: "Abara", correct:true},
+            {option: "19", correct:true},
+            {option: "18", correct:false},
+            {option: "20", correct:false},
         ],
-        
+    },
+
+    {
+        question: "Quanto é 16 ÷ 2?",
+        answers: [
+            {option: "8", correct:true},
+            {option: "7", correct:false},
+            {option: "9", correct:false},
+        ],
+    },
+
+    {
+        question: "Quanto é 3 x 4?",
+        answers: [
+            {option: "12", correct:true},
+            {option: "13", correct:false},
+            {option: "14", correct:false},
+        ],
+    },
+
+    {
+        question: "Quanto é 25 + 15?",
+        answers: [
+            {option: "40", correct:true},
+            {option: "41", correct:false},
+            {option: "39", correct:false},
+        ],
+    },
+
+    {
+        question: "Quanto é 18 - 7?",
+        answers: [
+            {option: "11", correct:true},
+            {option: "10", correct:false},
+            {option: "12", correct:false},
+        ],
+    },
+
+    {
+        question: "Quanto é 9 x 3?",
+        answers: [
+            {option: "27", correct:true},
+            {option: "28", correct:false},
+            {option: "26", correct:false},
+        ],
+    },
+
+    {
+        question: "Quanto é 30 ÷ 5?",
+        answers: [
+            {option: "6", correct:true},
+            {option: "5", correct:false},
+            {option: "7", correct:false},
+        ],
+    },
+
+    {
+        question: "Quanto é 5 + 17?",
+        answers: [
+            {option: "22", correct:true},
+            {option: "23", correct:false},
+            {option: "21", correct:false},
+        ],
+    },
+
+    {
+        question: "Quanto é 22 - 12?",
+        answers: [
+            {option: "10", correct:true},
+            {option: "9", correct:false},
+            {option: "11", correct:false},
+        ],
+    },
+
+    {
+        question: "Quanto é 6 x 4?",
+        answers: [
+            {option: "24", correct:true},
+            {option: "25", correct:false},
+            {option: "23", correct:false},
+        ],
+    },
+
+    {
+        question: "Quanto é 40 ÷ 8?",
+        answers: [
+            {option: "5", correct:true},
+            {option: "6", correct:false},
+            {option: "7", correct:false},
+        ],
     },
 ];

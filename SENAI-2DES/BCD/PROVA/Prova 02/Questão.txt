@@ -1,0 +1,97 @@
+1 - Abaixo segue o script para criar e popular um banco de dados em ambiente dev, execute o script no MariaDB MySQL do XAMPP
+
+2 - Crie um procedimento chamado calcSubtotais() qua quando for chamado calcule todos os subtotais da tabela de alugueis
+
+3 - Crie um gatilho que seja executado após qualquer update na tabela Aluguel calculando o subtotal
+
+
+- COMANDOS PARA INICIAR:
+
+    - CREATE USER 'alugueis'@'%' IDENTIFIED BY '1234';
+      GRANT ALL PRIVILEGES ON *.* TO 'alugueis'@'%' REQUIRE NONE WITH GRANT OPTION MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
+    
+    - mysql -u alugueis -p
+
+    - use alugueis
+
+    - show tables;
+
+- COMANDOS PARA SOLUÇÃO 2:
+
+    - DELIMITER //
+
+        CREATE PROCEDURE calcSubtotais()
+        BEGIN
+
+        DECLARE done INT DEFAULT FALSE;
+        DECLARE v_id INT;
+        DECLARE v_devolucao DATE;
+        DECLARE v_retirada DATE;
+        DECLARE v_placa VARCHAR(8);
+        DECLARE v_dias INT;
+        DECLARE v_diaria DECIMAL(10, 2);
+        DECLARE v_subtotal DECIMAL(10, 2);
+    
+        DECLARE alugueis_cursor CURSOR FOR
+            SELECT id, devolucao, retirada, placa 
+            FROM Aluguel 
+            WHERE devolucao IS NOT NULL;
+    
+        DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+    
+        OPEN alugueis_cursor;
+    
+        read_loop: LOOP
+            FETCH alugueis_cursor INTO v_id, v_devolucao, v_retirada, v_placa;
+        
+            IF done THEN
+                LEAVE read_loop;
+            END IF;
+        
+            SET v_dias = DATEDIFF(v_devolucao, v_retirada);
+            SELECT diaria INTO v_diaria FROM Veiculo WHERE placa = v_placa;
+            SET v_subtotal = v_dias * v_diaria;
+        
+            UPDATE Aluguel
+            SET subtotal = v_subtotal
+            WHERE id = v_id;
+        END LOOP;
+    
+        CLOSE alugueis_cursor;
+        END //
+
+    DELIMITER ;
+
+
+    - CALL calcSubtotais();
+
+    - SELECT * FROM Aluguel;
+
+- COMANDOS PARA A SOLUÇÃO 3:
+
+    - DELIMITER //
+
+        CREATE TRIGGER trg_calc_subtotal BEFORE UPDATE ON Aluguel
+        FOR EACH ROW
+        BEGIN
+            DECLARE v_diaria DECIMAL(10, 2);
+            DECLARE v_dias INT;
+            DECLARE v_subtotal DECIMAL(10, 2);
+
+            SELECT diaria INTO v_diaria FROM Veiculo WHERE placa = NEW.placa;
+            SET v_dias = DATEDIFF(NEW.devolucao, NEW.retirada);
+            SET v_subtotal = v_dias * v_diaria;
+
+            SET NEW.subtotal = v_subtotal;
+        END //
+
+    DELIMITER ;
+
+    - UPDATE Aluguel
+      SET devolucao = '2024-06-13'  
+      WHERE id = 1;  
+
+    - SELECT * FROM Aluguel WHERE id = 1;
+
+
+

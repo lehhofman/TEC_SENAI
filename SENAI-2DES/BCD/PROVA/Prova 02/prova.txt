@@ -1,0 +1,7 @@
+PROVA:
+
+1 = SELECT COUNT(*) AS veiculos_alugados_hoje
+FROM Aluguel
+WHERE devolucao IS NULL AND retirada IS NOT NULL;
+
+RESPOSTA = 5
