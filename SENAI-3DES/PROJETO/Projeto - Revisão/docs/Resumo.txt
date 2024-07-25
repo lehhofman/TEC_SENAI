@@ -1,0 +1,36 @@
+
+ ->  AUTENTICAÇÃO JWT
+
+- Json / Web / Token
+
+- Token = Código criptografado grande para comparação
+
+- Execução e Planejamento = Obter recursos fisicos e intelectuais
+
+---------------------------------------------------------------------------------
+
+    -> DER
+
+- Colaborador = Nome, Cargo, Matricula, Pin, Setor
+
+- Ordem de Serviço = Id, Descrição, Colaborador, Executor, Abertura, Encerramento
+
+- Comentario = Id, Orden de Serviço, Colaborador, Data, Comentario
+
+- Relacionamento: 
+
+1 colaborador ABRE N ordem de serviço
+1 colaborador EXECUTA N ordem de serviço
+1 colaborador FAZ N comentarios
+1 ordem de serviço POSSUI N comentarios
+
+
+---------------------------------------------------------------------------------
+
+    -> COMANDO PARA INSTALAR PRISMA
+
+- npm i prisma -g
+
+----------------------------------------------------------------------------
+
+    -> 

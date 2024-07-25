@@ -1,0 +1,41 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Colaborador{
+  matricula String @db.VarChar(8) @id
+  nome String @db.VarChar(255)
+  cargo String @db.VarChar(50)
+  setor String @db.VarChar(50)
+  pin String @db.VarChar(8)
+  comentarios Comentario[] @relation("faz")
+  oss Os[] @relation("abre")
+  executadas Os[] @relation("executa")
+}
+
+model Os{
+  id Int @id @default(autoincrement())
+  descricao String @db.VarChar(255)
+  colaborador String @db.VarChar(8)
+  executor String? @db.VarChar(8)
+  abertura DateTime @default(now())
+  encerramento DateTime?
+  comentarios Comentario[] @relation("possui")
+  colaboradores Colaborador @relation("abre",fields: [colaborador], references: [matricula])
+  executores Colaborador? @relation("executa", fields: [executor], references: [matricula])
+}
+
+model Comentario{
+  id Int @id @default(autoincrement())
+  os Int
+  colaborador String @db.VarChar(8)
+  comentario String @db.VarChar(255)
+  data DateTime @default(now())
+  oss Os @relation("possui",fields: [os], references: [id])
+  colaboradores Colaborador @relation("faz",fields: [colaborador], references: [matricula])
+}
