@@ -35,7 +35,7 @@ const ExpenseForm = ({ onAddExpense }) => {
         value={amount}
         onChange={(e) => setAmount(e.target.value)}
       />
-      <button onClick={handleAddExpense}>Adicionar Gasto</button>
+      <button onClick={handleAddExpense}>Adicionar</button>
     </div>
   );
 };

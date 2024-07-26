@@ -1,9 +1,8 @@
-// components/Home.js
-import React from 'react';
-import { Link } from 'react-router-dom'; // Importar o Link
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faDollarSign, faFileAlt, faBell } from '@fortawesome/free-solid-svg-icons';
+import ExpensesPage from './ExpensesPage'; // Importa a página de despesas
 
 const Container = styled.div`
   display: flex;
@@ -37,14 +36,13 @@ const Menu = styled.div`
   bottom: 0;
 `;
 
-const MenuItem = styled(Link)` // Alterar para Link
+const MenuItem = styled.div`
   color: #fff;
   cursor: pointer;
   padding: 10px 20px;
   display: flex;
   align-items: center;
   gap: 8px;
-  text-decoration: none; // Remover o sublinhado do texto
   &:hover {
     background: #218838;
   }
@@ -102,6 +100,12 @@ const PieChart = ({ data }) => {
 };
 
 const Home = ({ currentUser }) => {
+  const [activePage, setActivePage] = useState('home'); // Página ativa
+
+  const handleMenuClick = (page) => {
+    setActivePage(page);
+  };
+
   const data = [
     { value: 40, color: '#ff4d4d' },
     { value: 20, color: '#3399ff' },
@@ -111,24 +115,38 @@ const Home = ({ currentUser }) => {
 
   return (
     <Container>
-      <Title>Bem-vindo ao FinanceTracker</Title>
-      <ChartContainer>
-        <PieChart data={data} />
-      </ChartContainer>
-      <Description>
-        <TitleDescription>Quem Somos</TitleDescription>
-        <Text>
-          A FinanceTracker é uma empresa dedicada a fornecer soluções financeiras inovadoras para ajudar você a gerenciar suas finanças pessoais de forma eficiente. Nosso aplicativo foi desenvolvido para facilitar o acompanhamento das suas despesas e investimentos, oferecendo uma visão clara e detalhada das suas finanças.
-        </Text>
-        <Text>
-          Com a FinanceTracker, você pode monitorar seus gastos, planejar seu orçamento e tomar decisões financeiras informadas. Nosso objetivo é proporcionar uma experiência intuitiva e útil para que você possa alcançar suas metas financeiras com facilidade.
-        </Text>
-      </Description>
+      {activePage === 'home' && (
+        <>
+          <Title>Bem-vindo ao FinanceTracker</Title>
+          <ChartContainer>
+            <PieChart data={data} />
+          </ChartContainer>
+          <Description>
+            <TitleDescription>Quem Somos</TitleDescription>
+            <Text>
+              A FinanceTracker é uma empresa dedicada a fornecer soluções financeiras inovadoras para ajudar você a gerenciar suas finanças pessoais de forma eficiente. Nosso aplicativo foi desenvolvido para facilitar o acompanhamento das suas despesas e investimentos, oferecendo uma visão clara e detalhada das suas finanças.
+            </Text>
+            <Text>
+              Com a FinanceTracker, você pode monitorar seus gastos, planejar seu orçamento e tomar decisões financeiras informadas. Nosso objetivo é proporcionar uma experiência intuitiva e útil para que você possa alcançar suas metas financeiras com facilidade.
+            </Text>
+          </Description>
+        </>
+      )}
+      {activePage === 'expenses' && <ExpensesPage />} {/* Renderiza a página de despesas */}
+
       <Menu>
-        <MenuItem to="/"><FontAwesomeIcon icon={faHome} /> Home</MenuItem>
-        <MenuItem to="/expenseform"><FontAwesomeIcon icon={faDollarSign} /> Despesas</MenuItem>
-        <MenuItem to="/expenseslist"><FontAwesomeIcon icon={faFileAlt} /> Registros</MenuItem>
-        <MenuItem to="/reminders"><FontAwesomeIcon icon={faBell} /> Lembretes</MenuItem>
+        <MenuItem onClick={() => handleMenuClick('home')}>
+          <FontAwesomeIcon icon={faHome} /> Home
+        </MenuItem>
+        <MenuItem onClick={() => handleMenuClick('expenses')}>
+          <FontAwesomeIcon icon={faDollarSign} /> Despesas
+        </MenuItem>
+        <MenuItem onClick={() => handleMenuClick('records')}>
+          <FontAwesomeIcon icon={faFileAlt} /> Registros
+        </MenuItem>
+        <MenuItem onClick={() => handleMenuClick('reminders')}>
+          <FontAwesomeIcon icon={faBell} /> Lembretes
+        </MenuItem>
       </Menu>
     </Container>
   );
