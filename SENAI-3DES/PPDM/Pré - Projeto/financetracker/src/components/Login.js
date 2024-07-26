@@ -6,18 +6,24 @@ const Login = ({ onLogin, onRegister }) => {
   const [error, setError] = useState('');
   const [isRegistering, setIsRegistering] = useState(false);
 
+  // Função para verificar se um usuário está cadastrado
+  const isUserRegistered = (email, password) => {
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    return users.some(user => user.email === email && user.password === password);
+  };
+
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
       if (e.target.name === 'email') {
-       document.getElementById('passwordInput').focus();
+        document.getElementById('passwordInput').focus();
       } else if (e.target.name === 'password') {
-         handleLogin();
+        handleLogin();
       }
     }
   };
 
   const handleLogin = () => {
-    if (email === 'user@example.com' && password === 'password') {
+    if (isUserRegistered(email, password)) {
       onLogin(true);
       setError('');
     } else {
@@ -27,9 +33,18 @@ const Login = ({ onLogin, onRegister }) => {
 
   const handleRegister = () => {
     if (email && password) {
+      // Adicionar novo usuário ao localStorage
+      const newUser = { email, password };
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+      users.push(newUser);
+      localStorage.setItem('users', JSON.stringify(users));
+      
+      // Simulação de registro bem-sucedido
       onRegister({ name: 'Novo Usuário', email, password });
+
       setIsRegistering(false);
       setError('');
+      // Após o registro bem-sucedido, automaticamente faz login
       onLogin(true);
     } else {
       setError('Por favor, preencha todos os campos.');
