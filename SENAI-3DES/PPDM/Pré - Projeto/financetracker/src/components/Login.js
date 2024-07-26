@@ -4,10 +4,16 @@ const Login = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [isRegistering, setIsRegistering] = useState(false);
+
+  // Função para verificar se o usuário está registrado
+  const isUserRegistered = (email, password) => {
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    return users.some(user => user.email === email && user.password === password);
+  };
 
   const handleLogin = () => {
-    // Verificar se o email e a senha são válidos (simulação simples)
-    if (email === 'user@example.com' && password === 'password') {
+    if (isUserRegistered(email, password)) {
       onLogin(true);
       setError('');
     } else {
@@ -15,9 +21,30 @@ const Login = ({ onLogin }) => {
     }
   };
 
+  const handleRegister = () => {
+    if (email && password) {
+      // Adiciona o novo usuário ao localStorage
+      const newUser = { email, password };
+      const users = JSON.parse(localStorage.getItem('users')) || [];
+      users.push(newUser);
+      localStorage.setItem('users', JSON.stringify(users));
+      
+      // Após o registro bem-sucedido, automaticamente faz login
+      onLogin(true);
+      setError('');
+    } else {
+      setError('Por favor, preencha todos os campos.');
+    }
+  };
+
+  const toggleRegister = () => {
+    setIsRegistering(!isRegistering);
+    setError('');
+  };
+
   return (
     <div>
-      <h2>Login</h2>
+      <h2>{isRegistering ? 'Cadastro' : 'Login'}</h2>
       <input
         type="email"
         placeholder="Email"
@@ -31,7 +58,19 @@ const Login = ({ onLogin }) => {
         onChange={(e) => setPassword(e.target.value)}
       />
       {error && <p style={{ color: 'red' }}>{error}</p>}
-      <button onClick={handleLogin}>Login</button>
+      {isRegistering ? (
+        <button onClick={handleRegister}>Cadastrar</button>
+      ) : (
+        <button onClick={handleLogin}>Login</button>
+      )}
+      <p>
+        {isRegistering
+          ? 'Já tem uma conta?'
+          : 'Ainda não tem uma conta?'}
+        <button onClick={toggleRegister}>
+          {isRegistering ? 'Login' : 'Cadastrar'}
+        </button>
+      </p>
     </div>
   );
 };

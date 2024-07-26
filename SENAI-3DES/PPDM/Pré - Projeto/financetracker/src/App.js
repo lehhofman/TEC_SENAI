@@ -2,48 +2,38 @@ import React, { useState } from 'react';
 import './styles.css';
 import Login from './components/Login';
 import Home from './components/Home';
-import ExpenseForm from './components/ExpenseForm';
-import ExpensesList from './components/ExpensesList';
-import Reminders from './components/Reminders';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [expenses, setExpenses] = useState([]);
-  const [reminders, setReminders] = useState([]);
+  const [currentUser, setCurrentUser] = useState(null);
 
+  // Função para verificar se o usuário está logado
   const handleLogin = (loggedIn) => {
     setIsLoggedIn(loggedIn);
   };
 
-  const handleAddExpense = (expense) => {
-    setExpenses([...expenses, expense]);
+  // Função para definir o usuário atual após o cadastro
+  const handleRegister = (userData) => {
+    setCurrentUser(userData);
   };
 
-  const handleAddReminder = (reminder) => {
-    setReminders([...reminders, reminder]);
+  // Verificar se o usuário já está logado com base no estado
+  const isUserLoggedIn = () => {
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    return users.some(user => user.email === currentUser.email && user.password === currentUser.password);
   };
+
+  // Verificar se o usuário já está logado ao carregar a página
+  if (!isLoggedIn && currentUser && isUserLoggedIn()) {
+    setIsLoggedIn(true);
+  }
 
   return (
     <div className="App">
       {!isLoggedIn ? (
-        <Login onLogin={handleLogin} />
+        <Login onLogin={handleLogin} onRegister={handleRegister} />
       ) : (
-        <>
-          <Home />
-          <hr />
-          <ExpenseForm onAddExpense={handleAddExpense} />
-          <ExpensesList expenses={expenses} />
-          <hr />
-          <Reminders onAddReminder={handleAddReminder} />
-          <div>
-            <h2>Lembretes</h2>
-            <ul>
-              {reminders.map((reminder, index) => (
-                <li key={index}>{reminder}</li>
-              ))}
-            </ul>
-          </div>
-        </>
+        <Home currentUser={currentUser} />
       )}
     </div>
   );
