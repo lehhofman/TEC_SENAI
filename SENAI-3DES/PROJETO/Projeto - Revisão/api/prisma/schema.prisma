@@ -34,8 +34,8 @@ model Comentario{
   id Int @id @default(autoincrement())
   os Int
   colaborador String @db.VarChar(8)
-  comentario String @db.VarChar(255)
   data DateTime @default(now())
+  comentario String @db.VarChar(255)
   oss Os @relation("possui",fields: [os], references: [id])
   colaboradores Colaborador @relation("faz",fields: [colaborador], references: [matricula])
 }
