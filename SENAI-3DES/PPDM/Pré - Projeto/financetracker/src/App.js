@@ -1,41 +1,42 @@
+// App.js
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './styles.css';
 import Login from './components/Login';
 import Home from './components/Home';
+import Expenses from './components/ExpensesList'; 
+import Records from './components/ExpenseForm';
+import Reminders from './components/Reminders';
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
 
-  // Função para verificar se o usuário está logado
   const handleLogin = (loggedIn) => {
     setIsLoggedIn(loggedIn);
   };
 
-  // Função para definir o usuário atual após o cadastro
   const handleRegister = (userData) => {
     setCurrentUser(userData);
   };
 
-  // Verificar se o usuário já está logado com base no estado
-  const isUserLoggedIn = () => {
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    return users.some(user => user.email === currentUser.email && user.password === currentUser.password);
-  };
-
-  // Verificar se o usuário já está logado ao carregar a página
-  if (!isLoggedIn && currentUser && isUserLoggedIn()) {
-    setIsLoggedIn(true);
-  }
-
   return (
-    <div className="App">
-      {!isLoggedIn ? (
-        <Login onLogin={handleLogin} onRegister={handleRegister} />
-      ) : (
-        <Home currentUser={currentUser} />
-      )}
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          {!isLoggedIn ? (
+            <Route path="/" element={<Login onLogin={handleLogin} onRegister={handleRegister} />} />
+          ) : (
+            <>
+              <Route path="/" element={<Home currentUser={currentUser} />} />
+              <Route path="/expenseform" element={<Expenses />} />
+              <Route path="/expenses" element={<Records />} />
+              <Route path="/reminders" element={<Reminders />} />
+            </>
+          )}
+        </Routes>
+      </div>
+    </Router>
   );
 };
 

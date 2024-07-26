@@ -34,3 +34,15 @@ yarn add react-native-mask-input
 npm start
 
 ----------------------------
+
+dependencia
+
+npm install styled-components --legacy-peer-deps
+
+npm install --legacy-peer-deps
+
+npm install @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons
+
+
+
+-------------------------------------
