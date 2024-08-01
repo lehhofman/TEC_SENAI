@@ -1,54 +1,51 @@
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
-const createOs = async (req, res) => {
+const create = async (req, res) => {
     try {
-        const { descricao, colaborador, executor, abertura, encerramento } = req.body;
-        const newOs = await prisma.os.create({
+        const { descricao, colaborador, executor } = req.body;
+        const os = await prisma.os.create({
             data: {
                 descricao: descricao,
                 colaborador: colaborador,
-                executor: executor,
-                abertura: abertura,
-                encerramento: encerramento
+                executor: executor
             }
         });
-        return res.status(201).json(newOs);
+        return res.status(201).json(os);
     } catch (error) {
         return res.status(400).json({ message: error.message });
     }
 };
 
-const readOs = async (req, res) => {
-    if (req.params.id !== undefined) {
-        const os = await prisma.os.findUnique({
-            where: {
-                id: parseInt(req.params.id)
-            },
-            include: {
-                comentarios: true,
-                colaboradores: true,
-                executores: true
+const read = async (req, res) => {
+    try {
+        const { id } = req.params;
+        if (id) { 
+            const os = await prisma.os.findUnique({
+                where: {
+                    id: parseInt(id)
+                }
+            });
+            if (os) {
+                return res.json(os);
+            } else {
+                return res.status(404).json({ message: "OS não encontrada" });
             }
-        });
-        return res.json(os);
-    } else {
-        const oss = await prisma.os.findMany({
-            include: {
-                comentarios: true,
-                colaboradores: true,
-                executores: true
-            }
-        });
-        return res.json(oss);
+        } else {
+            const os = await prisma.os.findMany();
+            return res.json(os);
+        }
+    } catch (error) {
+        return res.status(500).json({ message: "Erro ao buscar OS", error: error.message });
     }
 };
 
-const updateOs = async (req, res) => {
+const update = async (req, res) => {
     try {
+        const { id } = req.params;
         const os = await prisma.os.update({
             where: {
-                id: parseInt(req.body.id)
+                id: parseInt(id)
             },
             data: req.body
         });
@@ -58,22 +55,23 @@ const updateOs = async (req, res) => {
     }
 };
 
-const deleteOs = async (req, res) => {
+const del = async (req, res) => {
     try {
-        const os = await prisma.os.delete({
+        const { id } = req.params;
+        await prisma.os.delete({
             where: {
-                id: parseInt(req.params.id)
+                id: parseInt(id)
             }
         });
-        return res.status(204).json(os);
+        return res.status(204).send();
     } catch (error) {
         return res.status(404).json({ message: "OS não encontrada" });
     }
-}
+};
 
 module.exports = {
-    createOs,
-    readOs,
-    updateOs,
-    deleteOs
+    create,
+    read,
+    update,
+    del
 };

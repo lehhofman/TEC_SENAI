@@ -47,7 +47,7 @@ const read = async (req, res) => {
             where: {
                 matricula: req.params.matricula
             }
-        });
+        }); 
         return res.json(colaborador);
     } else {
         const colaboradores = await prisma.colaborador.findMany();
@@ -56,10 +56,11 @@ const read = async (req, res) => {
 };
 
 const update = async (req, res) => {
+const { matricula } = req.params
     try {
         const colaborador = await prisma.colaborador.update({
             where: {
-                matricula: req.body.matricula
+                matricula: matricula
             },
             data: req.body
         });
@@ -71,12 +72,13 @@ const update = async (req, res) => {
 
 const del = async (req, res) => {
     try {
-        const colaborador = await prisma.colaborador.delete({
+        const { matricula } = req.params
+        await prisma.colaborador.delete({
             where: {
-                matricula: req.params.matricula
+                matricula: matricula
             }
         });
-        return res.status(204).json(colaborador);
+        return res.status(204).send();
     } catch (error) {
         return res.status(404).json({ message: "colaborador não encontrado" });
     }

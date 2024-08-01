@@ -1,89 +1,75 @@
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
-// Controlador para login
-const login = async (req, res) => {
-    const { matricula, pin } = req.body;
-    const colaborador = await prisma.colaborador.findFirst({
-        where: {
-            matricula: matricula,
-            pin: pin
-        }
-    });
-    if (colaborador) {
-        // Apenas retorna os detalhes do colaborador sem gerar token
-        return res.json(colaborador);
-    } else {
-        return res.status(401).json({ message: 'Matrícula ou pin inválidos' });
-    }
-};
-
-// Controlador para criar comentário
-const createComentario = async (req, res) => {
+const create = async (req, res) => {
     try {
-        const { os, colaborador, data, comentario } = req.body;
-        const newComentario = await prisma.comentario.create({
-            data: {
-                os: os,
-                colaborador: colaborador,
-                data: new Date(data), // Assegure-se de que a data esteja em formato ISO
-                comentario: comentario
-            }
+        const comment = await prisma.comentario.create({
+            data: req.body
         });
-        return res.status(201).json(newComentario);
+        return res.status(201).json(comment);
     } catch (error) {
-        return res.status(400).json({ message: error.message });
+        return res.status(400).json({ message: "Erro ao criar comentário" });
     }
-};
+}
 
-// Controlador para ler comentário(s)
-const readComentario = async (req, res) => {
-    if (req.params.id !== undefined) {
-        const comentario = await prisma.comentario.findUnique({
-            where: {
-                id: parseInt(req.params.id)
-            }
-        });
-        return res.json(comentario);
-    } else {
-        const comentarios = await prisma.comentario.findMany();
-        return res.json(comentarios);
-    }
-};
-
-// Controlador para atualizar comentário
-const updateComentario = async (req, res) => {
+const read = async (req, res) => {
     try {
-        const comentario = await prisma.comentario.update({
+        const { id } = req.params;
+
+        if (id) {
+            const comentario = await prisma.comentario.findUnique({
+                where: {
+                    id: parseInt(id)
+                }
+            });
+
+            if (!comentario) {
+                return res.status(404).json({ message: "Comentário não encontrado" });
+            }
+
+            return res.json(comentario);
+        } else {
+            const comentarios = await prisma.comentario.findMany();
+
+            return res.json(comentarios);
+        }
+    } catch (error) {
+        return res.status(500).json({ message: "Erro ao buscar comentários" });
+    }
+}
+
+const update = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const comentarioAtualizado = await prisma.comentario.update({
             where: {
-                id: parseInt(req.body.id)
+                id: parseInt(id)
             },
             data: req.body
         });
-        return res.status(202).json(comentario);
+        return res.status(202).json(comentarioAtualizado);
     } catch (error) {
         return res.status(404).json({ message: "Comentário não encontrado" });
     }
 };
 
-// Controlador para deletar comentário
-const deleteComentario = async (req, res) => {
+const del = async (req, res) => {
     try {
-        const comentario = await prisma.comentario.delete({
+        const { id } = req.params;
+        await prisma.comentario.delete({
             where: {
-                id: parseInt(req.params.id)
+                id: parseInt(id)
             }
         });
-        return res.status(204).json({});
+        return res.status(204).send();
     } catch (error) {
         return res.status(404).json({ message: "Comentário não encontrado" });
     }
 };
 
 module.exports = {
-    login,
-    createComentario,
-    readComentario,
-    updateComentario,
-    deleteComentario
+    create,
+    read,
+    update,
+    del
 };
