@@ -1,87 +1,175 @@
-import React, {useState} from "react";
-import { StyleSheet, Text, View, Button, TextInput, FlatList, Image } from "react-native";
-import {db} from "./firebaseconfig";
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import React, { useState, useEffect } from "react";
+import { StyleSheet, Text, View, TextInput, FlatList, Image, TouchableOpacity, Alert } from "react-native";
+import { db } from "./firebaseconfig";
+import { collection, addDoc, getDocs, doc, updateDoc, deleteDoc } from "firebase/firestore";
+import { launchImageLibrary } from 'react-native-image-picker';
 
 export default function App() {
-const [nomePet, setNomePet] = useState("");
-const [tipoPet, setTipoPet] = useState("");
-const [pets, setPets] = useState([]);
-const [loading, setLoading] = useState(false);
+  const [nomePet, setNomePet] = useState("");
+  const [tipoPet, setTipoPet] = useState("");
+  const [petImage, setPetImage] = useState(null);
+  const [pets, setPets] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [editingPetId, setEditingPetId] = useState(null);
 
-const adicionarPet = async () => {
-  try {
-    setLoading(true);
-    await addDoc(collection(db,"pets"),{
-      nome: nomePet,
-      tipo: tipoPet
-    });
-    alert("Pet adicionado com sucesso!");
-    setNomePet('');
-    setTipoPet('');
+  useEffect(() => {
     fetchPets();
-  }catch (e) {
-    console.error("Erro ao adicionar pet", e);
-  }finally {
-    setLoading(false);
-  }
-};
+  }, []);
 
-const fetchPets = async () => {
-  try {
-    const querySnapshot = await getDocs(collection(db, "pets"));
-    const petslist = querySnapshot.docs.map(doc => doc.data());
-    setPets(petslist);
+  const adicionarPet = async () => {
+    try {
+      setLoading(true);
+      if (editingPetId) {
+        const petDoc = doc(db, "pets", editingPetId);
+        await updateDoc(petDoc, {
+          nome: nomePet,
+          tipo: tipoPet,
+          imagem: petImage
+        });
+        Alert.alert("Pet atualizado com sucesso!");
+      } else {
+        await addDoc(collection(db, "pets"), {
+          nome: nomePet,
+          tipo: tipoPet,
+          imagem: petImage
+        });
+        Alert.alert("Pet adicionado com sucesso!");
+      }
+      resetForm();
+      fetchPets();
+    } catch (e) {
+      console.error("Erro ao adicionar/atualizar pet", e);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const fetchPets = async () => {
+    try {
+      const querySnapshot = await getDocs(collection(db, "pets"));
+      const petsList = querySnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }));
+      setPets(petsList);
     } catch (e) {
       console.error("Erro ao buscar pets", e);
     }
-};
+  };
 
-return (
-  <View style={styles.container}>
-    <Text style={styles.title}>Pets SENAI</Text>
+  const escolherImagem = () => {
+    const options = {
+      mediaType: 'photo',
+      quality: 1,
+    };
 
-    <Text style={styles.label}>Nome do Pet</Text>
-    <TextInput
-    style={styles.input}
-    placeholder="Digite o nome do pet"
-    value={nomePet}
-    onChangeText={setNomePet}
-    />
+    launchImageLibrary(options, response => {
+      if (response.didCancel) {
+        console.log('Seleção de imagem cancelada');
+      } else if (response.error) {
+        console.log('Erro ao selecionar imagem: ', response.error);
+      } else {
+        const source = { uri: response.assets[0].uri };
+        setPetImage(source.uri);
+      }
+    });
+  };
 
-    <Text style={styles.label}>Tipo do Pet</Text>
-    <TextInput
-    style={styles.input}
-    placeholder="Digite o tipo do pet"
-    value={tipoPet}
-    onChangeText={setTipoPet}
-    />
-    <Button
-    title={loading? "Adicionando..." : "Adicionar Pet"}
-    onPress={adicionarPet}
-    color="#6b8e23"
-    />
+  const editarPet = (pet) => {
+    setNomePet(pet.nome);
+    setTipoPet(pet.tipo);
+    setPetImage(pet.imagem);
+    setEditingPetId(pet.id);
+  };
 
-    <Text style={styles.label}>Lista de Pets</Text>
-    <FlatList
-    data={pets}
-    keyExtractor={(item, index) => index.toString()}
-    renderItem={({item}) => (
-      <View style={styles.petItem}>
-        <Image
-        source={{uri: 'https://via.placeholder.com/100'}}
-        style={styles.petImage}
-        />
-      <View>
-      <Text style={styles.petName}>{item.nome}</Text>
-      <Text style={styles.petType}>{item.tipo}</Text>
-      </View>
+  const excluirPet = async (petId) => {
+    try {
+      const petDoc = doc(db, "pets", petId);
+      await deleteDoc(petDoc);
+      Alert.alert("Pet excluído com sucesso!");
+      fetchPets();
+    } catch (e) {
+      console.error("Erro ao excluir pet", e);
+    }
+  };
+
+  const resetForm = () => {
+    setNomePet('');
+    setTipoPet('');
+    setPetImage(null);
+    setEditingPetId(null);
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Pets SENAI</Text>
+
+      <Text style={styles.label}>Nome do Pet</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Digite o nome do pet"
+        placeholderTextColor="#aaa"
+        value={nomePet}
+        onChangeText={setNomePet}
+      />
+
+      <Text style={styles.label}>Tipo do Pet</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Digite o tipo do pet"
+        placeholderTextColor="#aaa"
+        value={tipoPet}
+        onChangeText={setTipoPet}
+      />
+
+      <TouchableOpacity onPress={escolherImagem} style={styles.imagePicker}>
+        <Text style={styles.imagePickerText}>
+          {petImage ? 'Imagem Selecionada' : 'Selecionar Imagem do Pet'}
+        </Text>
+      </TouchableOpacity>
+
+      {petImage && (
+        <Image source={{ uri: petImage }} style={styles.petImagePreview} />
+      )}
+
+      <TouchableOpacity
+        onPress={adicionarPet}
+        style={styles.addButton}
+        disabled={loading}
+      >
+        <Text style={styles.addButtonText}>
+          {loading ? "Salvando..." : editingPetId ? "Atualizar Pet" : "Adicionar Pet"}
+        </Text>
+      </TouchableOpacity>
+
+      <Text style={styles.sectionTitle}>Lista de Pets</Text>
+      <FlatList
+        data={pets}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <View style={styles.petItem}>
+            <Image
+              source={{ uri: item.imagem || 'https://via.placeholder.com/100' }}
+              style={styles.petImage}
+            />
+            <View style={styles.petInfo}>
+              <Text style={styles.petName}>{item.nome}</Text>
+              <Text style={styles.petType}>{item.tipo}</Text>
+            </View>
+            <View style={styles.petActions}>
+              <TouchableOpacity onPress={() => editarPet(item)} style={styles.editButton}>
+                <Text style={styles.editButtonText}>✎</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => excluirPet(item.id)} style={styles.deleteButton}>
+                <Text style={styles.deleteButtonText}>✘</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        )}
+        style={styles.petList}
+      />
     </View>
-    )}
-    style={styles.petList}
-    />
-    </View>
-);
+  );
 }
 
 const styles = StyleSheet.create({
@@ -91,39 +179,60 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   title: {
-    fontSize: 32,
+    fontSize: 36,
     fontWeight: 'bold',
-    color: '4682b4',
+    color: '#4682b4',
     textAlign: 'center',
     marginBottom: 20,
   },
   label: {
-    fontSize: 18,
+    fontSize: 20,
     marginBottom: 5,
     color: '#333',
   },
-
   input: {
     width: '100%',
-    padding: 10,
-    marginBotton: 15,
+    padding: 12,
+    marginBottom: 15,
     borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 5,
-    backgroundColor: '#fff',
+    borderColor: '#4682b4',
+    borderRadius: 10,
+    backgroundColor: '#ffffff',
+    color: '#000',
   },
-
-  Button: {
-    backgroundColor: '#6b8e23',
+  imagePicker: {
+    backgroundColor: '#4682b4',
+    padding: 15,
+    borderRadius: 10,
+    marginBottom: 15,
+    alignItems: 'center',
+  },
+  imagePickerText: {
+    color: '#ffffff',
+    fontSize: 16,
+  },
+  petImagePreview: {
+    width: 120,
+    height: 120,
+    borderRadius: 60,
+    marginBottom: 15,
+    alignSelf: 'center',
+  },
+  addButton: {
+    backgroundColor: '#4682b4',
+    padding: 15,
+    borderRadius: 10,
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  addButtonText: {
     color: '#fff',
-    padding: 10,borderRadius: 5,
+    fontSize: 18,
   },
-
   sectionTitle: {
     fontSize: 24,
     fontWeight: 'bold',
     color: '#4682b4',
-    marginTop: 20,
     marginBottom: 10,
   },
   petList: {
@@ -132,29 +241,54 @@ const styles = StyleSheet.create({
   petItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#fff',
-    padding: 10,
-    borderRadius: 5,
+    backgroundColor: '#ffffff',
+    padding: 15,
+    borderRadius: 10,
     marginBottom: 10,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 2,
-    elevation: 3,
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
+    elevation: 5,
   },
   petImage: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
+    width: 60,
+    height: 60,
+    borderRadius: 30,
     marginRight: 15,
   },
+  petInfo: {
+    flex: 1,
+  },
   petName: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
     color: '#333',
   },
   petType: {
-    fontSize: 16,
+    fontSize: 18,
     color: '#555',
+  },
+  petActions: {
+    flexDirection: 'row',
+  },
+  editButton: {
+    backgroundColor: '#ffa500',
+    padding: 10,
+    borderRadius: 5,
+    marginRight: 10,
+  },
+  editButtonText: {
+    color: '#fff',
+    fontSize: 16,
+  },
+  deleteButton: {
+    backgroundColor: '#ff6347',
+    padding: 10,
+    borderRadius: 5,
+  },
+  deleteButtonText: {
+    color: '#fff',
+    fontSize: 16,
   },
 });
