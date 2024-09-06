@@ -6,12 +6,12 @@ import { getStorage } from 'firebase/storage';
 
 // Configuração do Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyAVSUi3-YrQgYpcE7tzl_BITGbDrKAjJdA",
-  authDomain: "livros-lidos-b2c08.firebaseapp.com",
-  projectId: "livros-lidos-b2c08",
-  storageBucket: "livros-lidos-b2c08.appspot.com",
-  messagingSenderId: "803261087640",
-  appId: "1:803261087640:web:0e797957c5e1a7f9f9f5ed"
+  apiKey: "AIzaSyBiIOekQ40eHkmCluV-rxWbcmnqzv_i3BQ",
+  authDomain: "livros-books.firebaseapp.com",
+  projectId: "livros-books",
+  storageBucket: "livros-books.appspot.com",
+  messagingSenderId: "141140102643",
+  appId: "1:141140102643:web:7162b30470fbca60eb5686"
 };
 
 // Inicializar o Firebase
